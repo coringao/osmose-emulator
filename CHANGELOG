@@ -2,3 +2,8 @@ version: 0.9.96
  * Initial version created by the developer
  * Removed outdated text files: License.txt, Readme.txt and TODO.txt
  * Added header file: #include <unistd.h>
+
+version: 1.0.0
+ * Removed 'unzip' directory and the files contained
+ * Renamed file: 'Osmose-0-9-96-QT.pro' to 'OsmoseEmulator.pro'
+ * 
