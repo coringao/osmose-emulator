@@ -33,6 +33,7 @@
  */
 
 #include "Joystick.h"
+#include <unistd.h>
 
 /**
  * Constructor. Throw an exception in case of failure.
