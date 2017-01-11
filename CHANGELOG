@@ -1,0 +1,4 @@
+version: 0.9.96
+ * Initial version created by the developer
+ * Removed outdated text files: License.txt, Readme.txt and TODO.txt
+ * Added header file: #include <unistd.h>
