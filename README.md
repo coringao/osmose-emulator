@@ -92,7 +92,7 @@ Features:
 -Joystick support, congigurable button assignement.
 -Drag and drop your ROMS into the emulator window to run games.
 
-*Due to the huge number of game gear/sms (around 1300) roms, games have not been
+* Due to the huge number of Game Gear/SMS ROMs (around 1300), games have not been
 deeply tested.
 
 ____________________________________________________________________________________
@@ -110,5 +110,4 @@ ________________________________________________________________________________
 
     Need more information or contact with author: See contact page on the site
     or send an email to bruno@asterope.fr
-
 
