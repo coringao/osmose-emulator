@@ -98,17 +98,17 @@ deeply tested.
 ____________________________________________________________________________________
 
 
-  |                                 |                                       _|       
-  __ \    __| _  /      _` |   __|  __|   _ \   __|  _ \   __ \    _ \     |     __| 
-  |   |  (      /      (   | \__ \  |     __/  |    (   |  |   |   __/     __|  |    
- _.__/  \___| ___| _) \__,_| ____/ \__| \___| _|   \___/   .__/  \___| _) _|   _|    
-                                                          _|                         
+  |                                 |                                       _|
+  __ \    __| _  /      _` |   __|  __|   _ \   __|  _ \   __ \    _ \     |     __|
+  |   |  (      /      (   | \__ \  |     __/  |    (   |  |   |   __/     __|  |
+ _.__/  \___| ___| _) \__,_| ____/ \__| \___| _|   \___/   .__/  \___| _) _|   _|
+                                                          _|
 ____________________________________________________________________________________
 
-            This file has been downloaded from : http://bcz.asterope.fr/
+            This file has been downloaded from: http://bcz.asterope.fr/
 ____________________________________________________________________________________
 
-    Need more information or contact with author  : See contact page on the site
+    Need more information or contact with author: See contact page on the site
     or send an email to bruno@asterope.fr
 
 
