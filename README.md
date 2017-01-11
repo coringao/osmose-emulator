@@ -6,108 +6,94 @@
           |    ___|.--------.--.--.|  |.---.-.|  |_.-----.----.
           |    ___||        |  |  ||  ||  _  ||   _|  _  |   _|
           |_______||__|__|__|_____||__||___._||____|_____|__|
-       Version 0.9.96 - public release, written by Bruno Vedder.
+        Public release, re-written and contributor by Carlos Donizete Froes.
+        Holder by copyright Bruno Vedder.
 
+### Osmose Emulator means
 
-Osmose means:
--------------
+In brief it's an Sega Master System/Game Gear emulator encapsulated into C++ classes. :smiley:
 
-Object      Oriented
-       S.m.s.         Emulator.
-
-In brief it's an Sega Master System / Game Gear emulator encapsulated into C++
-classes :-)
-
-
-What's new:
+*What's new:*
 -----------
+Osmose Emulator owns a clean graphical user interface based on QT version 5.x,
+GUI lib powerful enough to refresh display at 60hz.
 
-Osmose now owns a clean graphical user interface based on QT. QT was the first
-GUI lib powerfull enough to refresh display at 60hz. So no more SDL is used now.
+	- Switch sound system to use ALSA
+	- GUI development using QT.
+	- Rendering/Key mapping adapted to QTopenGL.
+	- Configuration system rewritten.
 
--Switch sound system to use ALSA
--GUI development using QT.
--Rendering / Key mapping adapted to QTopenGL.
--Configuration system rewritten.
+*Dependencies for Debian/Ubuntu Linux:*
+---------------------------------------
 
+    # apt install libasound2-dev libqt5opengl5-dev qt5-qmake qtbase5-dev qtchooser zlib1g-dev
 
-Dependancies to run:
---------------------
--QT 4.6
--Alsa
+*Compilation:*
+--------------
+To build osmose emulator, do from the source directory.
 
+*Starting compilation:*
 
-Dependancies to recompile:
---------------------------
+>  $ qmake
+  
+>  $ make
 
--QT 4.6 qqchose Qt-dev
--Alsa libasound-dev
+*Removing compilation:*
 
-To build osmose, do from the source directory:
-----------------
-qmake
-make
+>  $ make clean
 
+>  $ make distclean
 
-Vertical synchronisation:
--------------------------
-
-Osmose uses double buffering to avoid tearing image on the screen, but this does
+*Vertical synchronisation:*
+---------------------------
+Osmose Emulator uses double buffering to avoid tearing image on the screen, but this does 
 not guaranty that the rendering will be synchronized with the screen rendering.
 
-Keep in mind that Osmose uses openGL for rendering and filtering.
+Keep in mind that Osmose Emulator uses openGL for rendering and filtering.
 
 Synchronisation is a matter of choice : High frames per second or Synchronisation.
-On my Ubuntu, the closed source driver provide an option in the tab performance:
-"Sync to VBlank". When selected the rendering is stable, without flickering. The
-CPU usage is a bit higher. Without this option, the Osmose rendering is sometime
-teared but uses lower CPU. I suppose that this option is available on all the 
-drivers. Make your choice !
 
+On Ubuntu, the closed source driver provide an option in the tab performance: 'Sync to VBlank'.
 
-Sound:
-------
+When selected the rendering is stable, without flickering.
 
-Osmose uses ALSA for the sound system. It has been reported that concurrent
-application using the sound channel can inhibit osmose sound rendering. So,
-avoid watching videos while playing with osmose !
+The CPU usage is a bit higher.
 
+Without this option, the Osmose rendering is sometime teared but uses lower CPU.
 
-Features:
+I suppose that this option is available on all the drivers. Make your choice!
+
+*Sound:*
 --------
+Osmose Emulator uses ALSA for the sound system.
 
--SMS: Good compatibility. At this stage, the emulator can run* 96% of commercial
- games and public demos, except games that relies on codemaster mapper, which
- work  but does not have proper video mode emulated.
--Game Gear: Good compatibility. At this stage, the emulator can run 98.0%* of
- game gear ROMS.
--SN76489 Sound is supported.
--support. for .zip .sms  and .gg format.
--Video filters: bilinear or nearest neighbour (default)
--Pad(keyboard or joystick mapped) emulation.
--PAL/NTSC Timing.
--Japanese/Export console.
--In game Screenshots, GFX rip, sound shot.
--Configurable keyboard configuration.
--Joystick support, congigurable button assignement.
--Drag and drop your ROMS into the emulator window to run games.
+It has been reported that concurrent application using the sound channel can inhibit osmose sound rendering.
 
-* Due to the huge number of Game Gear/SMS ROMs (around 1300), games have not been
-deeply tested.
-
-____________________________________________________________________________________
+So, avoid watching videos while playing with osmose !
 
 
-  |                                 |                                       _|
-  __ \    __| _  /      _` |   __|  __|   _ \   __|  _ \   __ \    _ \     |     __|
-  |   |  (      /      (   | \__ \  |     __/  |    (   |  |   |   __/     __|  |
- _.__/  \___| ___| _) \__,_| ____/ \__| \___| _|   \___/   .__/  \___| _) _|   _|
-                                                          _|
-____________________________________________________________________________________
+*Features:*
+-----------
+- SMS: Good compatibility. At this stage, the emulator can run* 96% of commercial games and public demos, except games that relies on codemaster mapper, which work  but does not have proper video mode emulated.
+- Game Gear: Good compatibility. At this stage, the emulator can run 98.0%* of game gear ROMS.
+- SN76489 Sound is supported.
+- Support for ".sms"  and ".gg" format.
+- Video filters: bilinear or nearest neighbour (default)
+- Pad(keyboard or joystick mapped) emulation.
+- PAL/NTSC Timing.
+- Japanese/Export console.
+- In game Screenshots, GFX rip, sound shot.
+- Configurable keyboard configuration.
+- Joystick support, congigurable button assignement.
+- Drag and drop your ROMS into the emulator window to run games.
+    
+** Due to the huge number of game gear/master system (around 1300) roms, games have not been deeply tested.
 
-            This file has been downloaded from: http://bcz.asterope.fr/
-____________________________________________________________________________________
+-----
 
-    Need more information or contact with author: See contact page on the site
-    or send an email to bruno@asterope.fr
+Need more information or contact with authors:
 
+- © 2001-2011 Copyright holder Bruno Vedder <bruno@asterope.fr>
+- © 2016 Contributor Carlos Donizete Froes [a.k.a coringao] <coringao@riseup.net>
+
+* This file was officially downloaded from : http://bcz.asterope.fr/
