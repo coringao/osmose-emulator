@@ -36,7 +36,6 @@
 #include <fstream>
 #include <sstream>
 #include <iomanip>
-#include "unzip/unzip.h"
 #include "Options.h"
 #include "Definitions.h"
 #include "DebugEventThrower.h"
