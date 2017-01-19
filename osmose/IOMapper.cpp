@@ -217,7 +217,7 @@ void IOMapper::out8(unsigned port, unsigned char value)
         }
     }
 #ifdef VDP_VERBOSE
-    cout << "Unkown port "<< hex << setw(2) << setfill('0') << (int)port << " written with value " << hex << setw(2) << setfill('0') << (int)value << endl;
+    cout << "Unknown port "<< hex << setw(2) << setfill('0') << (int)port << " written with value " << hex << setw(2) << setfill('0') << (int)value << endl;
 #endif
 
 }
@@ -306,5 +306,5 @@ unsigned char IOMapper::in8(unsigned port)
         }
         return portPAD1;
     }
-    cout << "Unkown port "<< hex << setw(2) << setfill('0') << (int)port << " read."<< endl;
+    cout << "Unknown port "<< hex << setw(2) << setfill('0') << (int)port << " read."<< endl;
 }

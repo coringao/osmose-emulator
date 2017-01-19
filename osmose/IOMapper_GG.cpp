@@ -143,7 +143,7 @@ unsigned char IOMapper_GG::in8(unsigned  port)
         }
         return portPAD1;
     }
-    cout << "Unkown port "<< hex << setw(2) << setfill('0') << (int)port << " read."<< endl;
+    cout << "Unknown port "<< hex << setw(2) << setfill('0') << (int)port << " read."<< endl;
 }
 
 void IOMapper_GG::out8(unsigned  address, unsigned  char data)

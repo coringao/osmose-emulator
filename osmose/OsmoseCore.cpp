@@ -378,7 +378,7 @@ bool OsmoseCore::captureScreen()
 /* This method toggles the sound recording on and OFF. The filename   */
 /* is game_name +x .wav , where x is the number of taken sound shot,  */
 /* which is incremented every time recordSounds(OFF) is called.       */
-/* Return : true if operation was successfull, false otherwise. 	  */
+/* Return : true if operation was successful, false otherwise. 	  */
 /*--------------------------------------------------------------------*/
 bool OsmoseCore::startRecordingSounds()
 {
@@ -403,7 +403,7 @@ bool OsmoseCore::startRecordingSounds()
 /* This method toggles the sound recording on and OFF. The filename   */
 /* is game_name +x .wav , where x is the number of taken sound shot,  */
 /* which is incremented every time recordSounds(OFF) is called.       */
-/* Return : true if operation was successfull, false otherwise. 	  */
+/* Return : true if operation was successful, false otherwise. 	  */
 /*--------------------------------------------------------------------*/
 void OsmoseCore::stopRecordingSounds()
 {
