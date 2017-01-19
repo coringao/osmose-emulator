@@ -6,4 +6,5 @@ version: 0.9.96
 version: 1.0.0
  * Removed 'unzip' directory and the files contained
  * Renamed file: 'Osmose-0-9-96-QT.pro' to 'OsmoseEmulator.pro'
- * 
+ * Replaced the version of QT to 5.x
+ * Created own icon in the main window
