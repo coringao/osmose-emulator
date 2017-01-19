@@ -22,7 +22,7 @@
 #define VERSION_H
 
 // These for definitions should be coherent !
-#define __OSMOSE_VERSION__ "OsmOse Emulator 1.0.0"
+#define __OSMOSE_VERSION__ "Osmose Emulator"
 #define MAJOR  1
 #define MIDDLE 0
 #define MINOR  0
