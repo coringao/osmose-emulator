@@ -59,7 +59,7 @@ MemoryMapper::MemoryMapper(const char *rom_file, OsmoseConfigurationFile *conf)
     }
     else
     {
-		string error_message = "Invalid ROM name.\nValid name is at least one letter, and extension. Ex: a.sms or b.zip";
+	string error_message = "Invalid ROM name.\nValid name is at least one letter, and extension. Ex: a.sms";
         throw error_message;
     }
 
@@ -71,23 +71,19 @@ MemoryMapper::MemoryMapper(const char *rom_file, OsmoseConfigurationFile *conf)
 		QLogWindow::getInstance()->appendLog(msg);
     }
     else
-        if (ext == ".gg" || ext == ".GG") // Load GAMEGEAR unzipped file.
-        {
-            rom_crc = LoadSMSRom(rom_file);
-            opt.MachineType = GAMEGEAR;
-			string msg = "Switching emulator to GAMEGEAR mode.";
-			QLogWindow::getInstance()->appendLog(msg);
-        }
-        else
-            if (ext == "zip" || ext == "ZIP")
-            {
-                rom_crc = LoadZippedRom(rom_file);
-            }
-            else
-            {
-				string error_message = "Unknown file extension:" + ext + ". \nKnown extensions supported by Osmose are: .sms .gg or .zip";
-				throw error_message;				
-            }
+    	// Load GAMEGEAR unzipped file.
+        if (ext == ".gg" || ext == ".GG")
+    {
+    	rom_crc = LoadSMSRom(rom_file);
+    	opt.MachineType = GAMEGEAR;
+		string msg = "Switching emulator to GAMEGEAR mode.";
+		QLogWindow::getInstance()->appendLog(msg);
+    }
+    else
+    {
+	string error_message = "Unknown file extension: " + ext + ". \nKnown extensions supported by Osmose are: .sms or .gg";
+	throw error_message;				
+    }
 
     /* Print the ROM CRC. */
     //cout << "CRC32 = 0x"<< hex << setfill('0') << setw(8) << rom_crc << endl;
@@ -622,177 +618,6 @@ void MemoryMapper::DumpMappingPtr()
 //        cout << "readMap[" << i << "]=" << (unsigned)read_map[i] << endl;
 //    }
 }
-
-/*------------------------------------------------------------*/
-/* This method loads Zipped Rom into cartridge memory         */
-/*------------------------------------------------------------*/
-unsigned int MemoryMapper::LoadZippedRom(const char *rom_file)
-{
-    unzFile myZip = NULL;
-    unz_global_info zip_global_info;
-    unz_file_info zip_file_info;
-    unsigned char *dummy;		// Used to skip first 512 bytes.
-    char filename[256];			// Name of compressed file.
-    unsigned int file_nbr = 0;
-    int ret;
-    bool smsArchiveFound = false;
-
-    // Allocate dummy buffer to skip potential 512 bytes rom header.
-    dummy = new unsigned char[512];
-
-    // Open ROM with file pointer at the end of ROM.
-    myZip = unzOpen(rom_file);
-    if (myZip == NULL)
-    {
-        string error_msg = "Unable to open " + string(rom_file) + " zip archive.";
-        throw error_msg;
-    }
-
-    // Get global information on zip.
-    ret = unzGetGlobalInfo(myZip, &zip_global_info);
-    if (ret == UNZ_OK)
-    {
-        if (zip_global_info.number_entry != 1)
-        {
-			string msg ="Warning Found more than one file in archive.";
-			QLogWindow::getInstance()->appendLog(msg);
-        }
-    }
-    else
-    {
-        string error_msg = "unzGetGlobalInfo() call failed.";
-        throw error_msg;
-    }
-
-    // Get First file in zip archive.
-    ret = unzGoToFirstFile(myZip);
-    if (ret != UNZ_OK)
-    {
-        string error_msg = "unzGoToFirstFile() call failed.";
-        throw error_msg;		
-    }
-
-    do
-    {
-        // Read global information on the file.
-        ret = unzGetCurrentFileInfo(myZip, &zip_file_info,
-                                    filename, 256, NULL,0, NULL, 0);
-        // Get Sms file original size.
-        if (ret == UNZ_OK)
-        {
-            rom_size = zip_file_info.uncompressed_size;
-
-            // Check Extension: should be .sms .gg .GG or .SMS to be accepted.
-            if ((strncasecmp(&filename[strlen(filename)-4],".sms", 4)== 0))
-            {
-				string msg ="File in zip archive is ";
-				msg = msg + filename;
-				QLogWindow::getInstance()->appendLog(msg);				
-                smsArchiveFound = true;
-                opt.MachineType = SMS;
-				msg ="Switching emulator to SMS mode.";
-				QLogWindow::getInstance()->appendLog(msg);				
-            }
-            if ((strncasecmp(&filename[strlen(filename)-3],".gg", 3)== 0))
-            {
-				string msg ="File in zip archive is ";
-				msg = msg + filename;
-				QLogWindow::getInstance()->appendLog(msg);
-                smsArchiveFound = true;
-                opt.MachineType = GAMEGEAR;
-				msg ="Switching emulator to GAMEGEAR mode.";
-				QLogWindow::getInstance()->appendLog(msg);
-            }
-            file_nbr++;
-        }
-        else
-        {
-			string error_msg = "unzGetCurrentFileInfo() call failed.";
-			throw error_msg;			
-        }
-
-        if (smsArchiveFound != true && file_nbr <  zip_global_info.number_entry)
-        {
-            ret = unzGoToNextFile (myZip);
-            if (ret != UNZ_OK)
-            {
-				string error_msg = "unzGoToNextFile() call failed.";
-				throw error_msg;				
-            }
-        }
-
-    }
-    while (smsArchiveFound == false  &&  file_nbr <  zip_global_info.number_entry);
-
-    if (smsArchiveFound != true)
-    {
-		string error_msg = "The .zip archive does not contain '.sms' or .'gg' file, aborting.";
-		throw error_msg;
-    }
-
-    // Now open rom file, prepare for reading.
-    ret = unzOpenCurrentFile(myZip);
-    if (ret != UNZ_OK)
-    {
-		string error_msg = "Unable to open file from zip archive.";
-		throw error_msg;		
-    }
-
-    // Some rom seems to have a 512byte header. Skip it.
-    // unzip package doesn't handle seek. So read buffer to skip it.
-    if ((rom_size %1024) == 512)
-    {
-		string msg ="512 bytes ROM header Skipped.";
-		QLogWindow::getInstance()->appendLog(msg);
-        ret = unzReadCurrentFile(myZip, dummy, 512);
-        if (ret < 0)
-        {
-			string error_msg = "Unable read 512 bytes from zip archive.";
-			throw error_msg;	
-        }
-        rom_size -= 512;
-    }
-
-    DisplayROMSize();
-
-    // Save size of rom, in 8Ko bank units.
-    bank_nbr = (rom_size / 8192);
-
-    // Get at least 8, 8ko bank to handle all 64ko Z80 memory space.
-    if (bank_nbr < 8) bank_nbr = 8;
-    bank16Ko_nbr = bank_nbr /2;
-
-	ostringstream oss;
-	oss << "Cartdrige contains " << (int)bank16Ko_nbr << " 16Ko banks.";
-	QLogWindow::getInstance()->appendLog((char *)oss.str().c_str());
-    // Allocate RAM for the whole cartridge.
-    if (rom_size < 65536)
-    {
-        // Allocate at least 64Ko of ROM
-        cartridge = new unsigned char[65536];
-        memset(cartridge, 0, 65536);
-    }
-    else
-    {
-        cartridge = new unsigned char[rom_size];
-        memset(cartridge, 0, rom_size);
-    }
-
-    // Load rom file.
-    ret = unzReadCurrentFile(myZip, cartridge, rom_size);
-    if (ret <0)      // ret < 0 mean IO error.
-    {
-		string error_msg = "Unable to load cartridge from zip archive.";
-		throw error_msg;
-    }
-    
-    unzClose(myZip);
-    delete []dummy;
-
-    unsigned int crc = getCRC32(cartridge, rom_size);
-    return crc;
-}
-
 
 /*------------------------------------------------------------*/
 /* This method loads not zipped Rom into cartridge memory.    */
