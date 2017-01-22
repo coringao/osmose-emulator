@@ -30,6 +30,7 @@
  */
 
 #include "OsmoseGUI.h"
+#include <QIcon>
 
 /**
  * Constructor.
@@ -41,6 +42,9 @@ OsmoseGUI::OsmoseGUI(QWidget * parent, Qt::WindowFlags flags) : QMainWindow(pare
 	osmoseCore = NULL;
 	saveStateSlot = 0;
 	osmose_core_mutex = PTHREAD_MUTEX_INITIALIZER;
+	
+	this->setWindowTitle(__OSMOSE_VERSION__);
+	this->setWindowIcon(QIcon(":/osmose-emulator.xpm"));
 
 	QLogWindow::getInstance()->appendLog("Starting Osmose emulator.");
 		
