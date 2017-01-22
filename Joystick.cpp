@@ -34,7 +34,6 @@
 
 #include "Joystick.h"
 #include <unistd.h>
-#include <sys/types.h>
 
 /**
  * Constructor. Throw an exception in case of failure.
