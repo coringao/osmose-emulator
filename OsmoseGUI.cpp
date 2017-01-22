@@ -235,7 +235,6 @@ OsmoseGUI::OsmoseGUI(QWidget * parent, Qt::WindowFlags flags) : QMainWindow(pare
 	action = new QAction("Size x3 (768x576)", this);	
 	QObject::connect(action, SIGNAL(triggered()), this, SLOT(sizeX3()));
 	action->setCheckable(true);
-	action->setCheckable(true);
 	action->setChecked(false);
 	menu->addAction(action);
 	videoSizeGroup->addAction(action);
@@ -320,6 +319,15 @@ OsmoseGUI::OsmoseGUI(QWidget * parent, Qt::WindowFlags flags) : QMainWindow(pare
 	action->setChecked(false);
 	selectSlotGroup->addAction(action);
 	menu->addAction(action);	
+	
+	mb->addMenu(menu);
+	
+	// ABOUT Menu
+	menu = new QMenu("About", this);
+	action = new QAction("&About the emulator", this);
+	action->setShortcut(tr("F1"));
+	connect(action, &QAction::triggered, this, &OsmoseGUI::aboutDialog);
+	menu->addAction(action);
 	
 	mb->addMenu(menu);
 	

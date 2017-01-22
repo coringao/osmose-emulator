@@ -22,6 +22,7 @@
  
 #include <QApplication>
 #include "OsmoseGUI.h"
+#include <QTextStream>
 
 int main(int argc, char *argv[])
 {
@@ -29,5 +30,13 @@ int main(int argc, char *argv[])
     OsmoseGUI window;				
     window.resize(512, 384 + MENU_HEIGHT);
     window.show();
+    for (int i=1; i < argc; i++) {
+	if(QString(argv[i]) == "-f" || QString(argv[i]) == "--fullscreen") {
+	window.toggleFullscreen();
+	} else {
+            QString rom_file = argv[i];
+            window.loadTheROM(rom_file);
+        }
+    }
     return app.exec();
 }

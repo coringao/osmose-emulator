@@ -71,7 +71,7 @@ OsmoseConfigurationFile::~OsmoseConfigurationFile()
  */
 void OsmoseConfigurationFile::load()
 {
-	string fullname = homeDir + "/.osmose2.ini";	
+	string fullname = homeDir + "/.osmose-emulator.ini";	
 	ifstream file(fullname.c_str(), ios::in);
 
 	if (file.is_open() == false )
@@ -343,7 +343,7 @@ void OsmoseConfigurationFile::updateItem(string &identifier, string &value)
  */
 void OsmoseConfigurationFile::save()
 {
-		string fullname = homeDir + "/.osmose2.ini";
+		string fullname = homeDir + "/.osmose-emulator.ini";
         ofstream file(fullname.c_str(), ios::out);
         if (file.is_open() == false )
         {
