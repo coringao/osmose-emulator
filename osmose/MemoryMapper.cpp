@@ -59,7 +59,7 @@ MemoryMapper::MemoryMapper(const char *rom_file, OsmoseConfigurationFile *conf)
     }
     else
     {
-	string error_message = "Invalid ROM name.\nValid name is at least one letter, and extension. Ex: a.sms";
+		string error_message = "Invalid ROM name.\nValid name is at least one letter, and extension. Ex: a.sms or b.zip";
         throw error_message;
     }
 
@@ -71,19 +71,18 @@ MemoryMapper::MemoryMapper(const char *rom_file, OsmoseConfigurationFile *conf)
 		QLogWindow::getInstance()->appendLog(msg);
     }
     else
-    	// Load GAMEGEAR unzipped file.
-        if (ext == ".gg" || ext == ".GG")
-    {
-    	rom_crc = LoadSMSRom(rom_file);
-    	opt.MachineType = GAMEGEAR;
-		string msg = "Switching emulator to GAMEGEAR mode.";
-		QLogWindow::getInstance()->appendLog(msg);
-    }
-    else
-    {
-	string error_message = "Unknown file extension: " + ext + ". \nKnown extensions supported by Osmose are: .sms or .gg";
-	throw error_message;				
-    }
+        if (ext == ".gg" || ext == ".GG") // Load GAMEGEAR unzipped file.
+        {
+            rom_crc = LoadSMSRom(rom_file);
+            opt.MachineType = GAMEGEAR;
+			string msg = "Switching emulator to GAMEGEAR mode.";
+			QLogWindow::getInstance()->appendLog(msg);
+        }
+        else
+            {
+				string error_message = "Unknown file extension: " + ext + ". \nKnown extensions supported by Osmose are: .sms or .gg";
+				throw error_message;				
+            }
 
     /* Print the ROM CRC. */
     //cout << "CRC32 = 0x"<< hex << setfill('0') << setw(8) << rom_crc << endl;
@@ -658,7 +657,7 @@ unsigned int MemoryMapper::LoadSMSRom(const char *rom_file)
 
 	ostringstream oss;
 	oss << "Cartdrige contains " << (int)bank16Ko_nbr << " 16Ko banks.";
-	QLogWindow::getInstance()->appendLog((char *)oss.str().c_str());
+    QLogWindow::getInstance()->appendLog(oss.str().c_str());
 	
     // Allocate RAM for the whole cartridge.
     if (rom_size < 65536)
@@ -702,7 +701,7 @@ void MemoryMapper::DisplayROMSize()
     {
         oss << "ROM size is " << rom_size << " bytes (" << ((rom_size * 8)/1024)<< " kbits).";
     }
-	QLogWindow::getInstance()->appendLog((char *)oss.str().c_str());
+    QLogWindow::getInstance()->appendLog(oss.str().c_str());
 }
 
 /*------------------------------------------------------------*/
@@ -932,4 +931,3 @@ bool MemoryMapper::loadState( ifstream &ifs)
 //    cout << "Loaded paging_regs[3] =" << (unsigned int)paging_regs[3] << endl;
     return true;
 }
-

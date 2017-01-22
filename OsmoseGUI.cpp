@@ -45,8 +45,6 @@ OsmoseGUI::OsmoseGUI(QWidget * parent, Qt::WindowFlags flags) : QMainWindow(pare
 	
 	this->setWindowTitle(__OSMOSE_VERSION__);
 	this->setWindowIcon(QIcon(":/osmose-emulator.xpm"));
-
-	QLogWindow::getInstance()->appendLog("Starting Osmose emulator.");
 		
 	/* Instanciate menus.*/
 	QMenuBar *mb = menuBar();
@@ -354,7 +352,7 @@ OsmoseGUI::OsmoseGUI(QWidget * parent, Qt::WindowFlags flags) : QMainWindow(pare
 	js0 = NULL;
 	try
 	{
-		js0 = new Joystick((char *)configuration->getJoystickDevice().c_str(), this);
+		js0 = new Joystick((const char *)configuration->getJoystickDevice().c_str(), this);
 		string msg = "Found Joystick :";
 		msg = msg + js0->getStrID();		
 		QLogWindow::getInstance()->appendLog(msg);
@@ -456,19 +454,24 @@ void OsmoseGUI::sizeX5()
  */
 void OsmoseGUI::fullscreen()
 {
+    toggleFullscreen();
+}
+
+void OsmoseGUI::toggleFullscreen()
+{
 	isFullscreen ^= 1;
-	
+
 	if (isFullscreen)
 	{
 		showFullScreen();
 		// Now do this on QLImage to hide menus.
-		string msg = "Video mode set to fullscreen.";		
+		string msg = "Video mode set to fullscreen.";
 		QLogWindow::getInstance()->appendLog(msg);
 	}
 	else
 	{
 		showNormal();
-		string msg = "Video mode set to windowed.";		
+		string msg = "Video mode set to windowed.";
 		QLogWindow::getInstance()->appendLog(msg);
 	}
 }
@@ -478,8 +481,8 @@ void OsmoseGUI::fullscreen()
  */
 void OsmoseGUI::loadROM()
 {
-	QString filename = QFileDialog::getOpenFileName(this, "Load File", "./", "SMS/GG Roms (*.zip *.sms *.gg)");
-	if (!filename.isEmpty()) 
+	QString filename = QFileDialog::getOpenFileName(this, "Load File", "./", "SMS/GG Roms (*.sms *.gg)");
+	if (!filename.isEmpty())
 	{
 		loadTheROM(filename);
 	}
@@ -487,47 +490,45 @@ void OsmoseGUI::loadROM()
 
 /**
  * This method will load a ROM, instanciate emulator core and start it.
- * It also disconnect and reconnect emuThread QObject signals/slots. 
+ * It also disconnect and reconnect emuThread QObject signals/slots.
  */
 void OsmoseGUI::loadTheROM(QString filename)
 {
 	if (rom_name != NULL) delete rom_name;
 	//rom_name = qstrdup(qPrintable(filename));
 	rom_name = qstrdup( (const char *)filename.toStdString().c_str() );
-	
+
 	try
 	{
 		// Stop and kill previous thread.
 		emuThread->abortEmulation();
 		bool killed = emuThread->wait(1000); // Wait for thread end for 1 second.
-		if (!killed) 
+		if (!killed)
 		{
-			string msg = "Warning : could not kill emulation thread !";		
+			string msg = "Warning : could not kill emulation thread !";
 			QLogWindow::getInstance()->appendLog(msg);
 		}
 		delete emuThread;
 
-		
+
 		// Stop recording sound if needed.
 		saveSoundQAction->setChecked(false);
-		
+
 		QLogWindow::getInstance()->addSeparator();
-		QLogWindow::getInstance()->appendLog("Trying to load new ROM.");	
-		
-		
+		QLogWindow::getInstance()->appendLog(rom_name);
+
 		// Build new Emulation thread.
 		OsmoseEmulationThread *osm = new OsmoseEmulationThread(glImage, rom_name, configuration, &osmose_core_mutex);
 		emuThread = osm;
-		emuThread->start();	
+		emuThread->start();
 		emuThread->startEmulation();
-		QLogWindow::getInstance()->appendLog("Starting emulation !");	
 		osmoseCore = osm->getCore(); // Tmp is OsmoseEmuThread, not just EmuThread !
-		
+
 		// Disconnect / reconnect pause SLOT.
-		QObject::disconnect(pauseResume, SIGNAL(triggered()), this, SLOT(pauseResumeEmulation()));		
+		QObject::disconnect(pauseResume, SIGNAL(triggered()), this, SLOT(pauseResumeEmulation()));
 		QObject::connect(pauseResume, SIGNAL(triggered()), this, SLOT(pauseResumeEmulation()));
 		paused = false;
-		pauseResume->setText("Pause");		
+		pauseResume->setText("Pause");
 
 		updateMachineMenu();
 	}
@@ -538,11 +539,11 @@ void OsmoseGUI::loadTheROM(QString filename)
 		emuThread = new WhiteNoiseEmulationThread(glImage);
 		emuThread->start();
 		emuThread->startEmulation();
-		
+
 		QLogWindow::getInstance()->appendLog(error_msg);
 		QString msg(error_msg.c_str());
-		QMessageBox::critical(this, "Oops, we get an error", msg);
-	}	
+		QMessageBox::critical(this, "Oops, we have an error in the emulator", msg);
+	}
 }
 
 
@@ -581,7 +582,7 @@ void OsmoseGUI::resetEmulation()
 		pauseResume->setText("Pause");
 		emuThread->startEmulation();
 		paused = false;
-		
+
 		string msg = "Hardware reset.";
 		QLogWindow::getInstance()->appendLog(msg);
 }
@@ -606,7 +607,7 @@ void OsmoseGUI::keyReleaseEvent(QKeyEvent *event)
 	if (!event->isAutoRepeat())
 	{
 		padKey k = configuration->keyToKeyPad(event->key());
-		if (k != UNKNOWN) emuThread->keyReleased(k);	
+		if (k != UNKNOWN) emuThread->keyReleased(k);
 	}
 }
 
@@ -623,7 +624,7 @@ void OsmoseGUI::saveScreenshot()
 void OsmoseGUI::saveSound()
 {
 	if (osmoseCore == NULL) return;
-	
+
 	// Simulate a fake 'save wave sound' key.
 	emuThread->keyPressed(SOUNDSHOT);
 	if (saveSoundQAction->isChecked())
@@ -687,7 +688,7 @@ void OsmoseGUI::selectSlot4()
 void OsmoseGUI::saveState()
 {
 	if (osmoseCore == NULL) return;
-	bool success = osmoseCore->saveSaveState(saveStateSlot);
+    osmoseCore->saveSaveState(saveStateSlot);
 }
 
 /**
@@ -695,7 +696,7 @@ void OsmoseGUI::saveState()
 void OsmoseGUI::loadState()
 {
 	if (osmoseCore == NULL) return;
-	bool success = osmoseCore->loadSaveState(saveStateSlot);
+    osmoseCore->loadSaveState(saveStateSlot);
 }
 
 /**
@@ -723,7 +724,7 @@ void OsmoseGUI::closeEvent(QCloseEvent * )
 void OsmoseGUI::saveVDPGFX()
 {
 	if (osmoseCore == NULL) return;
-	bool success = osmoseCore->captureTiles();
+    osmoseCore->captureTiles();
 }
 
 /**
@@ -735,7 +736,7 @@ void OsmoseGUI::setDefaultMapper()
 	osmoseCore->reset();
 	string msg = "Forced Sega mapper, then hardware reset.";
 	QLogWindow::getInstance()->appendLog(msg);
-	
+
 }
 
 /**
@@ -777,7 +778,7 @@ void OsmoseGUI::setPALTiming()
 	if (osmoseCore == NULL) return;
 	osmoseCore->forceNTSCTiming(false);
 	string msg = "Forced PAL timing, no hardware reset.";
-	QLogWindow::getInstance()->appendLog(msg);	
+	QLogWindow::getInstance()->appendLog(msg);
 }
 
 /**
@@ -787,7 +788,7 @@ void OsmoseGUI::setJapanese()
 	if (osmoseCore == NULL) return;
 	opt.WorldVersion = false;
 	string msg = "Forced Japanese hardware, no hardware reset.";
-	QLogWindow::getInstance()->appendLog(msg);	
+	QLogWindow::getInstance()->appendLog(msg);
 }
 
 /**
@@ -802,7 +803,7 @@ void OsmoseGUI::setEuropean()
 
 /**
  * Loading a rom sometimes changes Osmose's option e.g.
- * Codemaster mapper required for some games.  This method 
+ * Codemaster mapper required for some games.  This method
  * synchronize opt structure and Machine menu.
  */
 void OsmoseGUI::updateMachineMenu()
@@ -815,25 +816,25 @@ void OsmoseGUI::updateMachineMenu()
 	{
 		japaneseQAction->setChecked(true);
 	}
-	
+
 	if (opt.ntsc == true)
 	{
 		ntscQAction->setChecked(true);
 	}
 	else
-	{	
+	{
 		palQAction->setChecked(true);
-	}	
-	
+	}
+
 	if (opt.irq_hack == true)
 	{
 		irqHackQAction->setChecked(true);
 	}
 	else
-	{	
+	{
 		irqHackQAction->setChecked(false);
-	}		
-	
+	}
+
 	switch(opt.mapperType)
 	{
 		case SegaMapper:
@@ -841,7 +842,7 @@ void OsmoseGUI::updateMachineMenu()
 		break;
 		case CodemasterMapper:
 			codemasterMapperQAction->setChecked(true);
-		break;		
+		break;
 		case KoreanMapper:
 			koreanMapperQAction->setChecked(true);
 		break;
@@ -877,18 +878,18 @@ void OsmoseGUI::showLogWindow()
 void OsmoseGUI::buttonChanged(unsigned int button, bool pressed)
 {
     if (osmoseCore == NULL) return;
-	
+
 	padKey b = configuration->getJoyButtonAssignation(button);
 	switch(b)
 	{
 		case P1BUTTON_A:
 			osmoseCore->P1AButtonChanged(pressed);
 		break;
-		
+
 		case P1BUTTON_B:
 			osmoseCore->P1BButtonChanged(pressed);
 		break;
-		
+
 		case PAUSE_NMI:
 			osmoseCore->PauseButtonChanged(pressed);
 		break;
@@ -904,21 +905,15 @@ void OsmoseGUI::buttonChanged(unsigned int button, bool pressed)
 
 void OsmoseGUI::xAxisChanged(int value)
 {
+    int sensitivity = 10000;
 	if (osmoseCore == NULL) return;
-	if (value == 0)
-	{
+	if (abs(value) < sensitivity) {
 		osmoseCore->P1RightChanged(false);
 		osmoseCore->P1LeftChanged(false);
-	}
-	
-	if (value > 0)
-	{
+	} else if (value > sensitivity) {
 		osmoseCore->P1RightChanged(true);
-		osmoseCore->P1LeftChanged(false);	
-	}
-	
-	if (value < 0)
-	{
+		osmoseCore->P1LeftChanged(false);
+	} else if (value < sensitivity * -1) {
 		osmoseCore->P1RightChanged(false);
 		osmoseCore->P1LeftChanged(true);
 	}
@@ -926,21 +921,15 @@ void OsmoseGUI::xAxisChanged(int value)
 
 void OsmoseGUI::yAxisChanged(int value)
 {
+    int sensitivity = 10000; // Duplicated from xAxisChanged
 	if (osmoseCore == NULL) return;
-	if (value == 0)
-	{
+	if (abs(value) < sensitivity) {
 		osmoseCore->P1UpChanged(false);
 		osmoseCore->P1DownChanged(false);
-	}
-	
-	if (value > 0)
-	{
+	} else if (value > sensitivity) {
 		osmoseCore->P1UpChanged(false);
 		osmoseCore->P1DownChanged(true);
-	}
-	
-	if (value < 0)
-	{
+	} else if (value < sensitivity * -1) {
 		osmoseCore->P1UpChanged(true);
 		osmoseCore->P1DownChanged(false);
 	}
@@ -953,7 +942,7 @@ void OsmoseGUI::joystickError()
 
 void OsmoseGUI::dropEvent(QDropEvent *event)
 {
-	QString fileDroped; 
+	QString fileDroped;
 	if (event->mimeData()->hasUrls())
 	{
 		QList<QUrl> urls = event->mimeData()->urls();
@@ -963,18 +952,6 @@ void OsmoseGUI::dropEvent(QDropEvent *event)
 	}
 }
 
-
-/*
-	On ubuntu 10.04 Drop formats received are :
-	x-special/gnome-icon-list
-	text/uri-list
-	UTF8_STRING
-	text/plain
-	COMPOUND_TEXT
-	TEXT
-	STRING
-	text/plain;charset=utf-8
-*/
 void OsmoseGUI::dragEnterEvent(QDragEnterEvent *event)
 {
 	if (event->mimeData()->hasUrls())
@@ -983,3 +960,16 @@ void OsmoseGUI::dragEnterEvent(QDragEnterEvent *event)
 	}
 }
 
+void OsmoseGUI::aboutDialog()
+{
+	    QMessageBox::about(this,tr("About"), \
+	    tr("<center><b>OSMOSE EMULATOR</b></center> \
+	    \n<center><b>Version: 1.0</b></center> \
+	    \n<center><i>Sega Master System and Game Gear console emulator</i></center><br> \
+	    <b>Copyright holder: </b>©2001-2011 \
+	    <a href='mailto:bruno@asterope.fr'> Bruno Vedder</a><br>  \
+	    <b>Contributor: </b>©2016 \
+	    <a href='mailto:coringao@riseup.net'> Carlos Donizete Froes</a><br><br> \
+	    This program comes with absolutely no warranty and can be redistributed and/or \
+	    modified under the terms of the <a href='http://www.gnu.org/licenses/gpl.html'>GNU GPL versions 3 or later</a>.<br>"));
+}

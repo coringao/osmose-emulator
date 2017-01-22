@@ -32,10 +32,12 @@
  
 #ifndef MEMORY_MAPPER_H
 #define MEMORY_MAPPER_H
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <iomanip>
+
 #include "Options.h"
 #include "Definitions.h"
 #include "DebugEventThrower.h"

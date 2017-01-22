@@ -50,7 +50,6 @@ using namespace std;
 #define MAX_JOYID_LEN	128
 #define DEFAULT_POLLING_PERIOD	  3
 
-
 /**
  * Joystick listener interface.
  * Inherit this class and provide virtual methods in order to be a full Joystick listener.
@@ -68,7 +67,7 @@ class Joystick : public Thread
 {
 public:
     
-	Joystick(char *dev_name, JoystickListener *l);
+    Joystick(const char *dev_name, JoystickListener *l);
     const char * getStrID() { return joystickID;  }
     const char * getDeviceName() { return deviceName; }
     void setListener(JoystickListener *lstnr) { listener = lstnr; }
@@ -95,7 +94,6 @@ private:
     JoystickListener *listener;
     int pollingPeriod;
 	bool done;
-	pthread_mutex_t mutex;
 
 	bool readDevice(struct js_event *jse);
 	

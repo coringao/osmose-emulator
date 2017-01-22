@@ -34,6 +34,7 @@
 
 #include "Joystick.h"
 #include <unistd.h>
+#include <sys/types.h>
 
 /**
  * Constructor. Throw an exception in case of failure.
@@ -42,10 +43,8 @@
  * Param2 : The JoystickListener that will be notified with jostick events
  *
  */
-Joystick::Joystick(char *dev_name, JoystickListener *lstnr)
+Joystick::Joystick(const char *dev_name, JoystickListener *lstnr)
 {
-	mutex = PTHREAD_MUTEX_INITIALIZER;
-
     // Try to open the device.
     joystickFD = ::open(dev_name, O_RDONLY | O_NONBLOCK);
     if (joystickFD < 0)
@@ -56,10 +55,10 @@ Joystick::Joystick(char *dev_name, JoystickListener *lstnr)
         err = err + strerror(errno);
         throw err;
     }
-    
+
     // Device successfully opened. Keep track of device name.
     ::strncpy(deviceName, dev_name, MAX_DEVNAME_LEN);
-    
+
     // Now get Joystick ID.
     if (::ioctl(joystickFD, JSIOCGNAME(MAX_JOYID_LEN), joystickID) < 0)
     {
@@ -70,8 +69,8 @@ Joystick::Joystick(char *dev_name, JoystickListener *lstnr)
     if (::ioctl(joystickFD, JSIOCGBUTTONS, &buttonNbr) < 0)
     {
 		buttonNbr = 0;
-	}	
-	
+	}
+
     // Now get Axis number.
     if (::ioctl(joystickFD, JSIOCGAXES, &axisNbr) < 0)
     {
@@ -83,10 +82,10 @@ Joystick::Joystick(char *dev_name, JoystickListener *lstnr)
     {
 		driverVersion = 0xFFFFFFFF;
 	}
-	
+
     // Keep track of listener for upcoming events.
     setListener(lstnr);
-    
+
     // Set default polling period.
     setPollingPeriod(DEFAULT_POLLING_PERIOD); // in milliseconds.
 
@@ -111,16 +110,16 @@ void Joystick::setPollingPeriod(int pp_ms)
 /**
  * This method reads the joystick file descriptor for new events.
  * return true if an event has been read, false otherwise. Unfortunatelly,
- * no data, and joystick unplugged return the same error 11 : 
+ * no data, and joystick unplugged return the same error 11 :
  * 'Resource temporarily unavailable'. We cannot simply detect if joystick
  * is present or not.
  */
 bool Joystick::readDevice(struct js_event *jse)
 {
 	int bytes_read;
-	
-	bytes_read = read(joystickFD, jse, sizeof(*jse)); 
-	
+
+    bytes_read = ::read(joystickFD, jse, sizeof(*jse));
+
 	// Handle errors !!!
 	if (bytes_read == -1)
 	{
@@ -138,7 +137,7 @@ void *Joystick::run(void *)
 {
 	struct timespec rqtp, rmtp;
     struct js_event jse;
-	
+
 	while(!done)
     {
 		// read the Joystick file descriptor until no more events are available.
@@ -154,7 +153,7 @@ void *Joystick::run(void *)
 					listener->buttonChanged(jse.number, pressed);
 				}
 				break;
-				
+
 				case JS_EVENT_AXIS:
 				{
 					// Inform the listener that axis event occurs.
@@ -165,20 +164,20 @@ void *Joystick::run(void *)
 						break;
 						case 1:
 							listener->yAxisChanged(jse.value);
-						break;				
+						break;
 					}
 				}
 				break;
-								
+
 				default:
 				break;
 			}
 		} // No more event to handle.
-		
-		
+
+
 		// Sleep for the polling period.
 		rqtp.tv_sec = 0;
-		rqtp.tv_nsec = pollingPeriod * 1000 * 1000; 	
+		rqtp.tv_nsec = pollingPeriod * 1000 * 1000;
 		nanosleep(&rqtp, &rmtp);
     }
     return NULL;
@@ -195,4 +194,3 @@ Joystick::~Joystick()
 	this->join(NULL);
     ::close(joystickFD);
 }
-

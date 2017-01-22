@@ -56,29 +56,34 @@
 class OsmoseGUI : public QMainWindow, JoystickListener
 {
 	Q_OBJECT;
-	
+
 public:
 	OsmoseGUI(QWidget * parent = 0, Qt::WindowFlags flags = 0);
 	~OsmoseGUI();
-	
+
 	/* JoystickListener interface */
-	void buttonChanged(unsigned int button, bool pressed); /* True when pressed */
-    void xAxisChanged(int value);
+	/* True when pressed */
+	void buttonChanged(unsigned int button, bool pressed);
+    	void xAxisChanged(int value);
 	void yAxisChanged(int value);
 	void joystickError();
+	void loadTheROM(QString name);
+    	void toggleFullscreen();
+    	/* About */
+    	void aboutDialog();
 
 protected:
-	void closeEvent(QCloseEvent * );	
+	void closeEvent(QCloseEvent * );
 	void dropEvent(QDropEvent *e);
 	void dragEnterEvent(QDragEnterEvent *event);
-	
+
 protected slots:
-	void sizeX1(); 
-	void sizeX2(); 
-	void sizeX3(); 
-	void sizeX4(); 
+	void sizeX1();
+	void sizeX2();
+	void sizeX3();
+	void sizeX4();
 	void sizeX5();
-	void fullscreen();
+    	void fullscreen();
 	void loadROM();
 	void pauseResumeEmulation();
 	void resetEmulation();
@@ -106,7 +111,7 @@ protected slots:
 	void setEuropean();
 	void toggleIrqHack();
 	void showLogWindow();
-	
+
 private:
 	bool paused;
 	QGLImage *glImage;
@@ -117,19 +122,18 @@ private:
 	QAction *ntscQAction;
 	QAction *palQAction;
 	QAction *japaneseQAction;
-	QAction *europeanQAction;	
+	QAction *europeanQAction;
 	QAction *codemasterMapperQAction;
 	QAction *segaMapperQAction;
 	QAction *koreanMapperQAction;
 	QAction *irqHackQAction;
-	
+
 	OsmoseConfigurationFile *configuration;
-	OsmoseCore *osmoseCore;	
+	OsmoseCore *osmoseCore;
 	int saveStateSlot;
 	pthread_mutex_t osmose_core_mutex;	// OsmoseCore access mutex.
-	
+
 	void updateMachineMenu();
-	void loadTheROM(QString name);
 	bool isFullscreen;
 	Joystick *js0;
 };
