@@ -244,14 +244,14 @@ unsigned char IOMapper::in8(unsigned port)
         if (port & BIT0) 	// Read H counter port.
         {
 //#ifdef VDP_VERBOSE
-            cout << "NOT IMPLEMENTED: VDP port H COUTNER 0x7F read."<< endl;
+            cout << "NOT IMPLEMENTED: VDP port H COUNTER 0x7F read."<< endl;
 //#endif
             return 0xFF;
         }
         else 			// Read on VDP Vertical counter
         {
 #ifdef VDP_VERBOSE
-            cout << "VDP, port V COUTNER 0x7E read."<< endl;
+            cout << "VDP, port V COUNTER 0x7E read."<< endl;
 #endif
             return vdp.v_counter;
         }
