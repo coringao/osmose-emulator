@@ -285,7 +285,7 @@ bool OsmoseCore::captureTiles()
 	}
 	
 	/* Deallocate buffer. */
-	delete local_buffer;
+	delete[] local_buffer;
 	
 	return true;
 }
