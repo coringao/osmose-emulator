@@ -1,4 +1,4 @@
-/*****************************************************************************
+/*
  * Copyright holder 2001-2011 Vedder Bruno.
  * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
  *	
@@ -298,7 +298,7 @@ class Z80 : public DebugEventThrower, public ImplementsSaveState
             env.wr8(getHL(),val);    /* write u8 in (HL) */
         }
 
-        /* 8 bit read/write thought (IX+d) and (IY+d). Warning: PC is not incremented !  */
+        /* 8 bit read/write through (IX+d) and (IY+d). Warning: PC is not incremented !  */
         u8    getIXdi()
         {
             return env.rd8((u16)(IX + (s8)env.rd8(PC)));

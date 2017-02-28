@@ -1,11 +1,9 @@
-QT += core gui opengl widgets
-TARGET = osmose-emulator
 TEMPLATE = app
-
+TARGET = osmose-emulator
 DEPENDPATH += . cpu osmose
 INCLUDEPATH += . cpu osmose
-
 LIBS += -lz -lasound
+QT += core gui opengl
 FLAGS = -Wall -Wextra -Wno-unused -Wcast-qual
 QMAKE_CXXFLAGS += -std=c++11 $$FLAGS
 QMAKE_CFLAGS += -Wmissing-prototypes -Wshadow  $$FLAGS

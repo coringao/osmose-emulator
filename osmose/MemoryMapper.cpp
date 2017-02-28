@@ -1,4 +1,4 @@
-/*****************************************************************************
+/*
  * Copyright holder 2001-2011 Vedder Bruno.
  * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
  *	
@@ -932,4 +932,3 @@ bool MemoryMapper::loadState( ifstream &ifs)
 //    cout << "Loaded paging_regs[3] =" << (unsigned int)paging_regs[3] << endl;
     return true;
 }
-

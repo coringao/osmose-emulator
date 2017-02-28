@@ -1,4 +1,4 @@
-/*****************************************************************************
+/*
  * Copyright holder 2001-2011 Vedder Bruno.
  * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
  *	

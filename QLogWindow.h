@@ -47,7 +47,7 @@ public:
 	~QLogWindow();
 	static QLogWindow *getInstance(QWidget *parent = 0);
 	void appendLog(string &);
-    void appendLog(const char *);
+    	void appendLog(const char *);
 	void addSeparator();
 
 protected slots:

@@ -690,6 +690,8 @@ void QOsmoseConfiguration::joyButton8Changed(bool pressed)
 /* JoystickListener interface */
 void QOsmoseConfiguration::buttonChanged(unsigned int button, bool pressed)
 {
+	QLabel *label;
+	
 	switch(button)
 	{
 		case 0:
@@ -721,12 +723,10 @@ void QOsmoseConfiguration::buttonChanged(unsigned int button, bool pressed)
 
 void QOsmoseConfiguration::xAxisChanged(int value)
 {
-    Q_UNUSED(value)
 }
 
 void QOsmoseConfiguration::yAxisChanged(int value)
 {
-    Q_UNUSED(value)
 }
 
 void QOsmoseConfiguration::joystickError()

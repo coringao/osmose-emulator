@@ -26,7 +26,7 @@ GUI lib powerful enough to refresh display at 60hz.
 *Dependencies for Debian/Ubuntu Linux:*
 ---------------------------------------
 
-    # apt install libasound2-dev libqt5opengl5-dev qt5-qmake qtbase5-dev qtchooser zlib1g-dev
+    # apt install libasound2-dev qt5-default libqt5opengl5-dev qt5-qmake qtbase5-dev qtchooser zlib1g-dev
 
 *Compilation:*
 --------------
@@ -40,9 +40,7 @@ To build osmose emulator, do from the source directory.
 
 *Removing compilation:*
 
->  $ make clean
-
->  $ make distclean
+>  $ make clean && make distclean
 
 *Vertical synchronisation:*
 ---------------------------
