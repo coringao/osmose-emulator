@@ -11,7 +11,7 @@
 
 ### Osmose Emulator means
 
-In brief it's an Sega Master System/Game Gear emulator encapsulated into C++ classes. :smiley:
+In brief it's an Sega Master System/Game Gear emulator encapsulated into C++ classes.
 
 *What's new:*
 -----------
