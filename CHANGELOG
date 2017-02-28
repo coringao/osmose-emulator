@@ -1,9 +1,10 @@
-1.0
+version: 1.0
     * Created own icon in the main window
     * Replaced the QT version - 4.x to 5.x
     * Added in the main window menu - About
     * Revised common misspelled words in source code
     * Removed embedded copy of the source code 'unzip'
 
-0.9.96
-    * Initial version
+version: 0.9.96
+ * Initial version created by the developer
+ * Removed outdated text files: License.txt, Readme.txt and TODO.txt
