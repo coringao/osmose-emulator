@@ -1,7 +1,8 @@
 /*
- * Copyright 2001-2011 Vedder Bruno.
- *	
- * This file is part of Osmose, a Sega Master System/Game Gear software 
+ * Copyright holder 2001-2011 Vedder Bruno.
+ * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
+ *
+ * This file is part of Osmose, a Sega Master System/Game Gear software
  * emulator.
  *
  * Osmose is free software: you can redistribute it and/or modify
@@ -16,7 +17,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with Osmose.  If not, see <http://www.gnu.org/licenses/>.
- *	
+ *
  *
  * File : OsmoseGUI.h
  *
@@ -41,6 +42,7 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QList>
+#include <QIcon>
 #include "QGLImage.h"
 #include "OsmoseEmulationThread.h"
 #include "WhiteNoiseEmulationThread.h"
@@ -62,14 +64,12 @@ public:
 	~OsmoseGUI();
 
 	/* JoystickListener interface */
-	/* True when pressed */
-	void buttonChanged(unsigned int button, bool pressed);
+	void buttonChanged(unsigned int button, bool pressed); /* True when pressed */
     	void xAxisChanged(int value);
 	void yAxisChanged(int value);
 	void joystickError();
 	void loadTheROM(QString name);
     	void toggleFullscreen();
-    	/* About */
     	void aboutDialog();
 
 protected:
@@ -82,8 +82,7 @@ protected slots:
 	void sizeX2();
 	void sizeX3();
 	void sizeX4();
-	void sizeX5();
-    	void fullscreen();
+    void fullscreen();
 	void loadROM();
 	void pauseResumeEmulation();
 	void resetEmulation();

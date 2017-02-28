@@ -1,5 +1,6 @@
 /*****************************************************************************
- * Copyright 2001-2011 Vedder Bruno.
+ * Copyright holder 2001-2011 Vedder Bruno.
+ * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
  *	
  * This file is part of Osmose, a Sega Master System/Game Gear software 
  * emulator.
@@ -931,3 +932,4 @@ bool MemoryMapper::loadState( ifstream &ifs)
 //    cout << "Loaded paging_regs[3] =" << (unsigned int)paging_regs[3] << endl;
     return true;
 }
+

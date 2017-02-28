@@ -1,5 +1,6 @@
 /*
- * Copyright 2001-2011 Vedder Bruno.
+ * Copyright holder 2001-2011 Vedder Bruno.
+ * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
  *	
  * This file is part of Osmose, a Sega Master System/Game Gear software 
  * emulator.
@@ -46,7 +47,7 @@ public:
 	~QLogWindow();
 	static QLogWindow *getInstance(QWidget *parent = 0);
 	void appendLog(string &);
-    	void appendLog(const char *);
+    void appendLog(const char *);
 	void addSeparator();
 
 protected slots:

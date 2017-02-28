@@ -1,7 +1,8 @@
 /*
- * Copyright 2001-2011 Vedder Bruno.
- *	
- * This file is part of Osmose, a Sega Master System/Game Gear software 
+ * Copyright holder 2001-2011 Vedder Bruno.
+ * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
+ *
+ * This file is part of Osmose, a Sega Master System/Game Gear software
  * emulator.
  *
  * Osmose is free software: you can redistribute it and/or modify
@@ -16,14 +17,14 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with Osmose.  If not, see <http://www.gnu.org/licenses/>.
- *	
+ *
  *
  * File : Joystick.cpp
  *
  * Description : This class inherits from Thread and read, every
  * polling period, the device file given to it's constructor. If events
  * are detected, the listener joystickChanged method will be called.
- * Note that several events will generate several call to joystick 
+ * Note that several events will generate several call to joystick
  * changed. There's only one listener at a time.
  *
  * Author : B.Vedder
@@ -32,7 +33,9 @@
  *
  */
 
+#include <unistd.h>
 #include "Joystick.h"
+#include <sys/types.h>
 #include <unistd.h>
 
 /**
@@ -193,3 +196,4 @@ Joystick::~Joystick()
 	this->join(NULL);
     ::close(joystickFD);
 }
+

@@ -1,5 +1,6 @@
 /*
- * Copyright 2001-2011 Vedder Bruno.
+ * Copyright holder 2001-2011 Vedder Bruno.
+ * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
  *	
  * This file is part of Osmose, a Sega Master System/Game Gear software 
  * emulator.
@@ -49,6 +50,7 @@ using namespace std;
 #define MAX_DEVNAME_LEN	128
 #define MAX_JOYID_LEN	128
 #define DEFAULT_POLLING_PERIOD	  3
+
 
 /**
  * Joystick listener interface.

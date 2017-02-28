@@ -1,5 +1,6 @@
 /*
- * Copyright 2001-2011 Vedder Bruno.
+ * Copyright holder 2001-2011 Vedder Bruno.
+ * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
  *	
  * This file is part of Osmose, a Sega Master System/Game Gear software 
  * emulator.
@@ -60,7 +61,7 @@ class TGAWriter
 {
 	public:
 
-		TGAWriter(const char *fn, int width, int height);
+        TGAWriter(const char *fn, int width, int height);
 		~TGAWriter();
 		bool isOk() {return isOk_;}
 		void writePixel(unsigned char r, unsigned char g,unsigned char b);

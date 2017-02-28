@@ -1,5 +1,6 @@
 /*
- * Copyright 2001-2011 Vedder Bruno.
+ * Copyright holder 2001-2011 Vedder Bruno.
+ * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
  *	
  * This file is part of Osmose, a Sega Master System/Game Gear software 
  * emulator.
@@ -689,8 +690,6 @@ void QOsmoseConfiguration::joyButton8Changed(bool pressed)
 /* JoystickListener interface */
 void QOsmoseConfiguration::buttonChanged(unsigned int button, bool pressed)
 {
-	QLabel *label;
-	
 	switch(button)
 	{
 		case 0:
@@ -722,10 +721,12 @@ void QOsmoseConfiguration::buttonChanged(unsigned int button, bool pressed)
 
 void QOsmoseConfiguration::xAxisChanged(int value)
 {
+    Q_UNUSED(value)
 }
 
 void QOsmoseConfiguration::yAxisChanged(int value)
 {
+    Q_UNUSED(value)
 }
 
 void QOsmoseConfiguration::joystickError()
