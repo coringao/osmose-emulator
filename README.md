@@ -35,6 +35,7 @@ To build osmose emulator, do from the source directory.
 *Starting compilation:*
 
     $ qmake
+
   
     $ make
 
