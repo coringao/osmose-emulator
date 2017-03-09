@@ -1,5 +1,6 @@
 version: 1.0.1
  * Changed own icon in the main window
+ * Changed image format: xpm to png
  * Fixed spelling in some files
 
 version: 1.0.0
