@@ -1,9 +1,10 @@
 version: 1.0.1
  * Changed own icon in the main window
  * Changed image format: xpm to png
+ * Added SVG image
  * Fixed spelling in some files
 
-version: 1.0.0
+version: 1.0
  * Created own icon in the main window
  * Replaced the QT version - 4.x to 5.x
  * Added in the main window menu - About
