@@ -23,7 +23,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Osmose configuration</string>
+   <string>Configuration</string>
   </property>
   <property name="modal">
    <bool>false</bool>

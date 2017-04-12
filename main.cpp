@@ -1,8 +1,8 @@
 /*
  * Copyright holder 2001-2011 Vedder Bruno.
  * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
- *	
- * This file is part of Osmose, a Sega Master System/Game Gear software 
+ *
+ * This file is part of Osmose, a Sega Master System/Game Gear software
  * emulator.
  *
  * Osmose is free software: you can redistribute it and/or modify
@@ -17,24 +17,24 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with Osmose.  If not, see <http://www.gnu.org/licenses/>.
- *	
+ *
  *
  */
- 
+
 #include <QApplication>
-#include "OsmoseGUI.h"
 #include <QTextStream>
+#include "OsmoseGUI.h"
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    OsmoseGUI window;				
+    OsmoseGUI window;
     window.resize(512, 384 + MENU_HEIGHT);
     window.show();
     for (int i=1; i < argc; i++) {
-	if(QString(argv[i]) == "-f" || QString(argv[i]) == "--fullscreen") {
-	window.toggleFullscreen();
-	} else {
+		if(QString(argv[i]) == "-f" || QString(argv[i]) == "--fullscreen") {
+			window.toggleFullscreen();
+		} else {
             QString rom_file = argv[i];
             window.loadTheROM(rom_file);
         }

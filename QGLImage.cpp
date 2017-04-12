@@ -1,8 +1,8 @@
 /*
  * Copyright holder 2001-2011 Vedder Bruno.
- * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
- *	
- * This file is part of Osmose, a Sega Master System/Game Gear software 
+ * Contributor 2016-2017 Carlos Donizete Froes [a.k.a coringao]
+ *
+ * This file is part of Osmose, a Sega Master System/Game Gear software
  * emulator.
  *
  * Osmose is free software: you can redistribute it and/or modify
@@ -17,7 +17,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with Osmose.  If not, see <http://www.gnu.org/licenses/>.
- *	
+ *
  *
  * File : QGLImage.cpp
  *
@@ -27,10 +27,10 @@
  * be done every frame, for performances reasons. Note that texture
  * format is fixed to 32 bits RGBA.
  *
- * The textureBuffer is protected by a mutex because blit() or 
+ * The textureBuffer is protected by a mutex because blit() or
  * resolutionChanged slot may be called during paintEvent. The blit() method
  * expect the source buffer to be of the current texture resolution.
- * 
+ *
  * The texture is refreshed using the blit() method, which call update().
  * Author : B.Vedder
  *
@@ -40,6 +40,12 @@
 
 #include "QGLImage.h"
 #include <iostream>
+
+#define GL_UNSIGNED_INT_8_8_8_8_REV	0x8367
+#define GL_QUADS	0x0007
+#define GL_CLAMP	0x2900
+#define GL_MODELVIEW	0x1700
+#define GL_PROJECTION	0x1701
 
 using namespace std;
 

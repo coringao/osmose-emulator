@@ -61,7 +61,7 @@ class TGAWriter
 {
 	public:
 
-		TGAWriter(const char *fn, int width, int height);
+        TGAWriter(const char *fn, int width, int height);
 		~TGAWriter();
 		bool isOk() {return isOk_;}
 		void writePixel(unsigned char r, unsigned char g,unsigned char b);

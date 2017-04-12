@@ -51,6 +51,7 @@ using namespace std;
 #define MAX_JOYID_LEN	128
 #define DEFAULT_POLLING_PERIOD	  3
 
+
 /**
  * Joystick listener interface.
  * Inherit this class and provide virtual methods in order to be a full Joystick listener.

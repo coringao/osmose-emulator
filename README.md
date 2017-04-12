@@ -26,7 +26,7 @@ GUI lib powerful enough to refresh display at 60hz.
 *Dependencies for Debian/Ubuntu Linux:*
 ---------------------------------------
 
-    # apt install libasound2-dev qt5-default libqt5opengl5-dev qt5-qmake qtbase5-dev qtchooser zlib1g-dev
+    # apt install libasound2-dev libqt5opengl5-dev qt5-qmake qtbase5-dev qtchooser zlib1g-dev
 
 *Compilation:*
 --------------
@@ -34,13 +34,15 @@ To build osmose emulator, do from the source directory.
 
 *Starting compilation:*
 
-    $ qmake
+   $ qmake
   
-    $ make
+   $ make
 
 *Removing compilation:*
 
-    $ make clean && make distclean
+   $ make clean
+
+   $ make distclean
 
 *Vertical synchronisation:*
 ---------------------------
@@ -57,7 +59,7 @@ When selected the rendering is stable, without flickering.
 
 The CPU usage is a bit higher.
 
-Without this option, the Osmose rendering is sometime teared but uses lower CPU.
+Without this option, the Osmose Emulator rendering is sometime teared but uses lower CPU.
 
 I suppose that this option is available on all the drivers. Make your choice!
 
@@ -92,6 +94,7 @@ So, avoid watching videos while playing with osmose !
 Need more information or contact with authors:
 
 - © 2001-2011 Copyright holder Bruno Vedder <bruno@asterope.fr>
-- © 2016 Contributor Carlos Donizete Froes [a.k.a coringao] <coringao@riseup.net>
+- © 2016-2017 Contributor Carlos Donizete Froes [a.k.a coringao] <coringao@riseup.net>
 
-* This file was officially downloaded from : http://bcz.asterope.fr/
+* This file was officially downloaded from : http://bcz.asterope.fr
+* Continuation of the project from: https://github.com/coringao/osmose-emulator
