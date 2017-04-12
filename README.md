@@ -74,8 +74,8 @@ So, avoid watching videos while playing with osmose !
 
 *Features:*
 -----------
-- [1]SMS: Good compatibility. At this stage, the emulator can run 96% of commercial games and public demos, except games that relies on codemaster mapper, which work  but does not have proper video mode emulated.
-- [1]Game Gear: Good compatibility. At this stage, the emulator can run 98% of game gear ROMS.
+- SMS: Good compatibility. At this stage, the emulator can run **96% of commercial games and public demos, except games that relies on codemaster mapper, which work  but does not have proper video mode emulated.
+- Game Gear: Good compatibility. At this stage, the emulator can run **98% of game gear ROMS.
 - SN76489 Sound is supported.
 - Support for ".sms"  and ".gg" format.
 - Video filters: bilinear or nearest neighbour (default)
@@ -87,7 +87,7 @@ So, avoid watching videos while playing with osmose !
 - Joystick support, congigurable button assignement.
 - Drag and drop your ROMS into the emulator window to run games.
     
-[1] - Due to the huge number of game gear/master system (around 1300) roms, games have not been deeply tested.
+** Due to the huge number of game gear/master system (around 1300) roms, games have not been deeply tested.
 
 -----
 
