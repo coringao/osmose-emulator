@@ -1,4 +1,4 @@
-QT += core gui widgets opengl
+QT += core gui opengl widgets
 TARGET = osmose-emulator
 TEMPLATE = app
 
