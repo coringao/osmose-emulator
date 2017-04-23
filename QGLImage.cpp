@@ -111,7 +111,7 @@ void QGLImage::paintGL()
 	QMutexLocker locker(& textureBufferMutex);
 	
 	setupViewport(viewPortWidth, viewPortHeight);
-    glLoadIdentity();
+    void glLoadIdentity();
     glBindTexture(GL_TEXTURE_2D, textureName[0]);
 
     glTexImage2D (GL_TEXTURE_2D, 0, GL_RGBA, adjustedTextureWidth, adjustedTextureHeight, 0, GL_RGBA, GL_UNSIGNED_INT_8_8_8_8_REV, textureBuffer);
@@ -128,7 +128,7 @@ void QGLImage::paintGL()
 
     glTexCoord2f(0, glTextCoordY);
     glVertex2i(0, viewPortHeight);
-    glEnd();
+    void glEnd();
 }
 
 
@@ -177,10 +177,10 @@ void QGLImage::setupViewport(int width, int height)
 	if (height==0)	height=1;
 	glViewport(0,0,width,height);
 	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
+	void glLoadIdentity();
 	glOrtho(0.0f,width,height,0.0f,-1.0f,1.0f);				
 	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();	
+	void glLoadIdentity();	
 }
 
 
