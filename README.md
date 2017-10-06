@@ -11,8 +11,7 @@
 
 ### Osmose Emulator means
 
-In brief it's an Sega Master System/Game Gear emulator encapsulated into C++
-classes.
+In brief it's an Sega Master System/Game Gear emulator encapsulated into C++ classes.
 
 *What's new:*
 -----------
@@ -27,8 +26,7 @@ GUI lib powerful enough to refresh display at 60hz.
 *Dependencies for Debian/Ubuntu/GNU/Linux:*
 ---------------------------------------
 
-    # apt install libasound2-dev libqt5opengl5-dev qt5-qmake qt5-default
-qtbase5-dev qtchooser zlib1g-dev
+    # apt install libasound2-dev libqt5opengl5-dev qt5-qmake qt5-default qtbase5-dev qtchooser zlib1g-dev
 
 *Compilation:*
 --------------
@@ -48,11 +46,11 @@ To build osmose emulator, do from the source directory.
 
 *Features:*
 -----------
-- SMS: Good compatibility. At this stage, the emulator can run **96% ** of
+- SMS: Good compatibility. At this stage, the emulator can run **96%** of
 commercial games and public demos, except games that relies on
 codemaster mapper, which work  but does not have proper video mode emulated.
 - Game Gear: Good compatibility. At this stage, the emulator can run
-**98% ** of game gear ROMS.
+**98%** of game gear ROMS.
 - SN76489 Sound is supported.
 - Support for ".sms"  and ".gg" format.
 - Video filters: bilinear or nearest neighbour (default)
@@ -64,8 +62,7 @@ codemaster mapper, which work  but does not have proper video mode emulated.
 - Joystick support, congigurable button assignement.
 - Drag and drop your ROMS into the emulator window to run games.
     
-** Due to the huge number of game gear/master system (around 1300) roms,
-games have not been deeply tested. **
+**Due to the huge number of game gear/master system (around 1300) roms, games have not been deeply tested.**
 
 -----
 
