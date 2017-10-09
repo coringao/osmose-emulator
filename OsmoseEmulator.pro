@@ -7,8 +7,8 @@ INCLUDEPATH += . cpu osmose
 
 LIBS += -lz -lasound
 FLAGS = -Wall -Wextra -Wno-unused -Wcast-qual
-QMAKE_CXXFLAGS += -std=c++11 $$FLAGS
-QMAKE_CFLAGS += -Wmissing-prototypes -Wshadow  $$FLAGS
+QMAKE_CXXFLAGS += -std=gnu++11 $$FLAGS
+QMAKE_CFLAGS += -Wmissing-prototypes -Wshadow $$FLAGS
 
 # Input
 HEADERS += EmulationThread.h \
