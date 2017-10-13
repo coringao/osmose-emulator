@@ -2,64 +2,71 @@ QT += core gui opengl widgets
 TARGET = osmose-emulator
 TEMPLATE = app
 
-DEPENDPATH += . cpu osmose
-INCLUDEPATH += . cpu osmose
+DEPENDPATH += . cpu src
+INCLUDEPATH += . cpu src
 
 LIBS += -lz -lasound
 FLAGS = -Wall -Wextra -Wno-unused -Wcast-qual
 QMAKE_CXXFLAGS += -std=gnu++11 $$FLAGS
 QMAKE_CFLAGS += -Wmissing-prototypes -Wshadow $$FLAGS
 
-# Input
-HEADERS += EmulationThread.h \
-           Joystick.h \
-           KeyMapper.h \
-           OsmoseConfigurationFile.h \
-           OsmoseEmulationThread.h \
-           OsmoseGUI.h \
-           Pthreadcpp.h \
-           QGLImage.h \
-           QLogWindow.h \
-           QOsmoseConfiguration.h \
-           TGAWriter.h \
-           WhiteNoiseEmulationThread.h \
+# Output directory
+OBJECTS_DIR += src
+MOC_DIR += src
+RCC_DIR += src
+UI_DIR += src
+
+# Input directory
+HEADERS += src/EmulationThread.h \
+           src/Joystick.h \
+           src/KeyMapper.h \
+           src/OsmoseConfigurationFile.h \
+           src/OsmoseEmulationThread.h \
+           src/OsmoseGUI.h \
+           src/Pthreadcpp.h \
+           src/QGLImage.h \
+           src/QLogWindow.h \
+           src/QOsmoseConfiguration.h \
+           src/TGAWriter.h \
+           src/WhiteNoiseEmulationThread.h \
            cpu/BasicTypes.h \
            cpu/Z80.h \
-           osmose/AnsiColorTerminal.h \
-           osmose/Bits.h \
-           osmose/DebugEventListener.h \
-           osmose/DebugEventThrower.h \
-           osmose/Definitions.h \
-           osmose/FIFOSoundBuffer.h \
-           osmose/IOMapper.h \
-           osmose/IOMapper_GG.h \
-           osmose/MemoryMapper.h \
-           osmose/Options.h \
-           osmose/OsmoseCore.h \
-           osmose/RomSpecificOption.h \
-           osmose/SaveState.h \
-           osmose/SmsDebugger.h \
-           osmose/SmsEnvironment.h \
-           osmose/SN76489.h \
-           osmose/SoundThread.h \
-           osmose/VDP.h \
-           osmose/VDP_GG.h \
-           osmose/Version.h \
-           osmose/WaveWriter.h
-FORMS +=   Configuration.ui LogWindow.ui
-SOURCES += EmulationThread.cpp \
-           Joystick.cpp \
-           KeyMapper.cpp \
-           main.cpp \
-           OsmoseConfigurationFile.cpp \
-           OsmoseEmulationThread.cpp \
-           OsmoseGUI.cpp \
-           Pthreadcpp.cpp \
-           QGLImage.cpp \
-           QLogWindow.cpp \
-           QOsmoseConfiguration.cpp \
-           TGAWriter.cpp \
-           WhiteNoiseEmulationThread.cpp \
+           src/AnsiColorTerminal.h \
+           src/Bits.h \
+           src/DebugEventListener.h \
+           src/DebugEventThrower.h \
+           src/Definitions.h \
+           src/FIFOSoundBuffer.h \
+           src/IOMapper.h \
+           src/IOMapper_GG.h \
+           src/MemoryMapper.h \
+           src/Options.h \
+           src/OsmoseCore.h \
+           src/RomSpecificOption.h \
+           src/SaveState.h \
+           src/SmsDebugger.h \
+           src/SmsEnvironment.h \
+           src/SN76489.h \
+           src/SoundThread.h \
+           src/VDP.h \
+           src/VDP_GG.h \
+           src/Version.h \
+           src/WaveWriter.h
+FORMS +=   src/Configuration.ui \
+	   src/LogWindow.ui
+SOURCES += src/EmulationThread.cpp \
+           src/Joystick.cpp \
+           src/KeyMapper.cpp \
+           src/main.cpp \
+           src/OsmoseConfigurationFile.cpp \
+           src/OsmoseEmulationThread.cpp \
+           src/OsmoseGUI.cpp \
+           src/Pthreadcpp.cpp \
+           src/QGLImage.cpp \
+           src/QLogWindow.cpp \
+           src/QOsmoseConfiguration.cpp \
+           src/TGAWriter.cpp \
+           src/WhiteNoiseEmulationThread.cpp \
            cpu/Opc_cbxx.cpp \
            cpu/Opc_dd.cpp \
            cpu/Opc_ddcb.cpp \
@@ -68,18 +75,19 @@ SOURCES += EmulationThread.cpp \
            cpu/Opc_fdcb.cpp \
            cpu/Opc_std.cpp \
            cpu/Z80.cpp \
-           osmose/DebugEventThrower.cpp \
-           osmose/FIFOSoundBuffer.cpp \
-           osmose/IOMapper.cpp \
-           osmose/IOMapper_GG.cpp \
-           osmose/MemoryMapper.cpp \
-           osmose/Options.cpp \
-           osmose/OsmoseCore.cpp \
-           osmose/RomSpecificOption.cpp \
-           osmose/SmsEnvironment.cpp \
-           osmose/SN76489.cpp \
-           osmose/SoundThread.cpp \
-           osmose/VDP.cpp \
-           osmose/VDP_GG.cpp \
-           osmose/WaveWriter.cpp
-RESOURCES += ./OsmoseResources.qrc
+           src/DebugEventThrower.cpp \
+           src/FIFOSoundBuffer.cpp \
+           src/IOMapper.cpp \
+           src/IOMapper_GG.cpp \
+           src/MemoryMapper.cpp \
+           src/Options.cpp \
+           src/OsmoseCore.cpp \
+           src/RomSpecificOption.cpp \
+           src/SmsEnvironment.cpp \
+           src/SN76489.cpp \
+           src/SoundThread.cpp \
+           src/VDP.cpp \
+           src/VDP_GG.cpp \
+           src/WaveWriter.cpp
+RESOURCES += ./src/OsmoseResources.qrc
+
