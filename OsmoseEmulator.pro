@@ -90,4 +90,3 @@ SOURCES += src/EmulationThread.cpp \
            src/VDP_GG.cpp \
            src/WaveWriter.cpp
 RESOURCES += ./src/OsmoseResources.qrc
-
