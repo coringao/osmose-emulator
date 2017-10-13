@@ -1,6 +1,6 @@
-/*****************************************************************************
+/*
  * Copyright holder 2001-2011 Vedder Bruno.
- * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
+ * Work continued by 2016-2017 Carlos Donizete Froes [a.k.a coringao]
  *	
  * This file is part of Osmose, a Sega Master System/Game Gear software 
  * emulator.
@@ -17,20 +17,10 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with Osmose.  If not, see <http://www.gnu.org/licenses/>.
- * File: Z80.h
  *
- * Project: Osmose emulator.
+ * Many thanks to Vedder Bruno, the original author of Osmose Emulator.
  *
- * Description: This class implements Z80 cpu emulator. It's table driven, and all
- * opcodes are supported. Not that undocumented flags are not totaly supported.
- * In these files are defined almost all ALU, and Shift operations. Address mode
- * getters and setters are define in Z80.h as statics methods.
- *
- * Author: Vedder Bruno
- * Date: 10/01/2006, Thailand, Laos Cambodia :-)
- *
- * URL: http://bcz.asterope.fr
- *****************************************************************************/
+ */
 
 #include "Z80.h"
 #include <stdio.h>

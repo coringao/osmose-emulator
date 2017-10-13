@@ -956,10 +956,11 @@ void OsmoseGUI::aboutDialog()
 	    tr("<center><b>OSMOSE EMULATOR</b></center> \
 	    \n<center><b>Version: 1.1</b></center> \
 	    \n<center><i>Sega Master System and Game Gear console emulator</i></center><br> \
-	    <b>Copyright holder: </b>©2001-2011 \
-	    <a href='mailto:bruno@asterope.fr'> Bruno Vedder</a><br>  \
-	    <b>Contributor: </b>©2016-2017 \
-	    <a href='mailto:coringao@riseup.net'> Carlos Donizete Froes</a><br><br> \
+	    Many thanks to <b>Vedder Bruno</b> [2001-2011]\
+	    the original author of Osmose Emulator.<br>  \
+	    Work continued by <b>Carlos Donizete Froes</b> [2016-2017] \
+	    <br><br> \
 	    This program comes with absolutely no warranty and can be redistributed and/or \
-	    modified under the terms of the <a href='http://www.gnu.org/licenses/gpl.html'>GNU GPL versions 3 or later</a>.<br>"));
+	    modified under the terms of the \
+	    <a href='http://www.gnu.org/licenses/gpl.html'>GNU GPL versions 3 or later</a>.<br>"));
 }
