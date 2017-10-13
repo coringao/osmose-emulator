@@ -6,12 +6,14 @@
           |    ___|.--------.--.--.|  |.---.-.|  |_.-----.----.
           |    ___||        |  |  ||  ||  _  ||   _|  _  |   _|
           |_______||__|__|__|_____||__||___._||____|_____|__|
-        Public release, re-written and contributor by Carlos Donizete Froes.
+        Public release, re-written and continued by Carlos Donizete Froes.
         Holder by copyright Bruno Vedder.
 
 ### Osmose Emulator means
 
 In brief it's an Sega Master System/Game Gear emulator encapsulated into C++ classes.
+
+Many thanks to Vedder Bruno, the original author of Osmose Emulator.
 
 *What's new:*
 -----------
@@ -20,7 +22,7 @@ GUI lib powerful enough to refresh display at 60hz.
 
 	- Switch sound system to use ALSA.
 	- GUI development using QT5.
-	- Rendering/Key mapping adapted to QTopenGL.
+	- Rendering/Key mapping adapted to QTOpenGL.
 	- Configuration system rewritten.
 
 *Dependencies for Debian/Ubuntu/GNU/Linux:*
@@ -69,7 +71,7 @@ codemaster mapper, which work  but does not have proper video mode emulated.
 Need more information or contact with authors:
 
 - © 2001-2011 Copyright holder Bruno Vedder
-- © 2016-2017 Contributor Carlos Donizete Froes [a.k.a coringao]
+- © 2016-2017 Work continued by Carlos Donizete Froes [a.k.a coringao]
 
 * This file was officially downloaded from : http://bcz.asterope.fr
 * Continuation of the project from: https://github.com/coringao/osmose-emulator
