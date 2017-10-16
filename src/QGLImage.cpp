@@ -1,6 +1,6 @@
 /*
  * Copyright holder 2001-2011 Vedder Bruno.
- * Contributor 2016-2017 Carlos Donizete Froes [a.k.a coringao]
+ * Work continued by 2016-2017 Carlos Donizete Froes [a.k.a coringao]
  *
  * This file is part of Osmose, a Sega Master System/Game Gear software
  * emulator.
@@ -18,23 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Osmose.  If not, see <http://www.gnu.org/licenses/>.
  *
- *
- * File : QGLImage.cpp
- *
- * Description : This Object is used to display image on an OpenGL
- * textured quad . If the QGLImage size changes, the texture will be stretched
- * to fit the Quad. The texture dimension can be changed, but should not
- * be done every frame, for performances reasons. Note that texture
- * format is fixed to 32 bits RGBA.
- *
- * The textureBuffer is protected by a mutex because blit() or
- * resolutionChanged slot may be called during paintEvent. The blit() method
- * expect the source buffer to be of the current texture resolution.
- *
- * The texture is refreshed using the blit() method, which call update().
- * Author : B.Vedder
- *
- * Date : Wed May 19 17:55:00 2010
+ * Many thanks to Vedder Bruno, the original author of Osmose Emulator.
  *
  */
 
