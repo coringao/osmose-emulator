@@ -2,8 +2,8 @@ QT += core gui opengl widgets
 TARGET = osmose-emulator
 TEMPLATE = app
 
-DEPENDPATH += . cpu src
-INCLUDEPATH += . cpu src
+DEPENDPATH += src
+INCLUDEPATH += src
 
 LIBS += -lz -lasound
 FLAGS = -Wall -Wextra -Wno-unused -Wcast-qual
@@ -29,8 +29,8 @@ HEADERS += src/EmulationThread.h \
            src/QOsmoseConfiguration.h \
            src/TGAWriter.h \
            src/WhiteNoiseEmulationThread.h \
-           cpu/BasicTypes.h \
-           cpu/Z80.h \
+           src/BasicTypes.h \
+           src/Z80.h \
            src/AnsiColorTerminal.h \
            src/Bits.h \
            src/DebugEventListener.h \
@@ -67,14 +67,14 @@ SOURCES += src/EmulationThread.cpp \
            src/QOsmoseConfiguration.cpp \
            src/TGAWriter.cpp \
            src/WhiteNoiseEmulationThread.cpp \
-           cpu/Opc_cbxx.cpp \
-           cpu/Opc_dd.cpp \
-           cpu/Opc_ddcb.cpp \
-           cpu/Opc_ed.cpp \
-           cpu/Opc_fd.cpp \
-           cpu/Opc_fdcb.cpp \
-           cpu/Opc_std.cpp \
-           cpu/Z80.cpp \
+           src/Opc_cbxx.cpp \
+           src/Opc_dd.cpp \
+           src/Opc_ddcb.cpp \
+           src/Opc_ed.cpp \
+           src/Opc_fd.cpp \
+           src/Opc_fdcb.cpp \
+           src/Opc_std.cpp \
+           src/Z80.cpp \
            src/DebugEventThrower.cpp \
            src/FIFOSoundBuffer.cpp \
            src/IOMapper.cpp \
@@ -89,4 +89,4 @@ SOURCES += src/EmulationThread.cpp \
            src/VDP.cpp \
            src/VDP_GG.cpp \
            src/WaveWriter.cpp
-RESOURCES += ./src/OsmoseResources.qrc
+RESOURCES += src/OsmoseResources.qrc
