@@ -1,6 +1,6 @@
-/*****************************************************************************
+/*
  * Copyright holder 2001-2011 Vedder Bruno.
- * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
+ * Work continued by 2016-2017 Carlos Donizete Froes [a.k.a coringao]
  *	
  * This file is part of Osmose, a Sega Master System/Game Gear software 
  * emulator.
@@ -18,22 +18,10 @@
  * You should have received a copy of the GNU General Public License
  * along with Osmose.  If not, see <http://www.gnu.org/licenses/>.
  *
- * File: AnsiTer,inalColors.h
- * Project: Osmose emulator.
+ * Many thanks to Vedder Bruno, the original author of Osmose Emulator.
  *
- * Description: These MACROS allows the program to output colored strings on
- * the terminal. Note that only basic coloring is handled, not the full escape
- * sequences defined by the norm. SO Bold chars, video inverse and blinking
- * things do not work.
- *
- * Note that USE_ISO_IEC_6429 must be define in order to work. Undefine this
- * setting for non ISO6429 compliant terminal (ms win).
- *
- * Author: Vedder Bruno
- * Date: 12/12/2007
- * URL: http://bcz.asterope.fr
  */
- 
+
 #ifndef ANSI_TERMINAL_COLORS_H
 #define ANSI_TERMINAL_COLORS_H
 
