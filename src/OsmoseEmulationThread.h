@@ -1,8 +1,8 @@
 /*
  * Copyright holder 2001-2011 Vedder Bruno.
- * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
- *	
- * This file is part of Osmose, a Sega Master System/Game Gear software 
+ * Work continued by 2016-2017 Carlos Donizete Froes [a.k.a coringao]
+ *
+ * This file is part of Osmose, a Sega Master System/Game Gear software
  * emulator.
  *
  * Osmose is free software: you can redistribute it and/or modify
@@ -17,22 +17,16 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with Osmose.  If not, see <http://www.gnu.org/licenses/>.
- *	
  *
- * File : OsmoseEmulationThread.h
- *
- * Description :
- *
- * Author : B.Vedder
- *
- * Date : Thu May 27 14:20:27 2010
+ * Many thanks to Vedder Bruno, the original author of Osmose Emulator.
  *
  */
+
 #ifndef OSMOSE_EMULATION_THREAD_H
 #define OSMOSE_EMULATION_THREAD_H
 
 #include <pthread.h>
-#include <Qt>
+#include <qt5/QtCore/Qt>
 #include "EmulationThread.h"
 #include "Z80.h"
 #include "OsmoseCore.h"
