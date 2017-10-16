@@ -55,7 +55,7 @@ codemaster mapper, which work  but does not have proper video mode emulated.
 **98%** of game gear ROMS.
 - SN76489 Sound is supported.
 - Support for ".sms"  and ".gg" format.
-- Video filters: bilinear or nearest neighbour (default)
+- Video filters: bilinear or nearest neighbour (default).
 - Pad(keyboard or joystick mapped) emulation.
 - PAL/NTSC Timing.
 - Japanese/Export console.
