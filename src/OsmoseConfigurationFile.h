@@ -1,8 +1,8 @@
 /*
  * Copyright holder 2001-2011 Vedder Bruno.
- * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
- *	
- * This file is part of Osmose, a Sega Master System/Game Gear software 
+ * Work continued by 2016-2017 Carlos Donizete Froes [a.k.a coringao]
+ *
+ * This file is part of Osmose, a Sega Master System/Game Gear software
  * emulator.
  *
  * Osmose is free software: you can redistribute it and/or modify
@@ -17,15 +17,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with Osmose.  If not, see <http://www.gnu.org/licenses/>.
- *	
  *
- * File : OsmoseConfigurationFile.h
- *
- * Description : This class handle $HOME .osmose.ini file.
- *
- * Author : B.Vedder
- *
- * Date : Fri Nov 26 15:50:00 2010
+ * Many thanks to Vedder Bruno, the original author of Osmose Emulator.
  *
  */
 
