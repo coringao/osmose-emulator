@@ -1,8 +1,8 @@
 /*
  * Copyright holder 2001-2011 Vedder Bruno.
  * Work continued by 2016-2017 Carlos Donizete Froes [a.k.a coringao]
- *	
- * This file is part of Osmose, a Sega Master System/Game Gear software 
+ *
+ * This file is part of Osmose, a Sega Master System/Game Gear software
  * emulator.
  *
  * Osmose is free software: you can redistribute it and/or modify
@@ -286,7 +286,7 @@ void Z80::Opc_ddxx_63()
 /* LD IXH, IXH */
 void Z80::Opc_ddxx_64()
 {
-    IX = IX; // Do nothing;
+    IX = (IX); // Do nothing;
     cycleCount += 9;
 }
 
@@ -350,7 +350,7 @@ void Z80::Opc_ddxx_6c()
 /* LD IXL, IXL */
 void Z80::Opc_ddxx_6d()
 {
-    IX = IX; // Do nothing;
+    IX = (IX); // Do nothing;
     cycleCount += 9;
 }
 
