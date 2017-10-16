@@ -1,8 +1,8 @@
 /*
  * Copyright holder 2001-2011 Vedder Bruno.
- * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
- *	
- * This file is part of Osmose, a Sega Master System/Game Gear software 
+ * Work continued by 2016-2017 Carlos Donizete Froes [a.k.a coringao]
+ *
+ * This file is part of Osmose, a Sega Master System/Game Gear software
  * emulator.
  *
  * Osmose is free software: you can redistribute it and/or modify
@@ -17,18 +17,9 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with Osmose.  If not, see <http://www.gnu.org/licenses/>.
- *	
  *
+ * Many thanks to Vedder Bruno, the original author of Osmose Emulator.
  *
- * File: TGAWriter.cpp
- * Project: Osmose
- *
- * Description: This file handle creation, and write into an uncompressed TGA
- * 24bits imagefile. No more formats supported.
- *
- * Author: Vedder Bruno
- * Date: 12/12/2007
- * URL: http://bcz.asterope.fr
  */
 
 #include "TGAWriter.h"
