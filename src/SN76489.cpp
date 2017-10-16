@@ -1,8 +1,8 @@
-/*****************************************************************************
+/*
  * Copyright holder 2001-2011 Vedder Bruno.
- * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
- *	
- * This file is part of Osmose, a Sega Master System/Game Gear software 
+ * Work continued by 2016-2017 Carlos Donizete Froes [a.k.a coringao]
+ *
+ * This file is part of Osmose, a Sega Master System/Game Gear software
  * emulator.
  *
  * Osmose is free software: you can redistribute it and/or modify
@@ -18,20 +18,12 @@
  * You should have received a copy of the GNU General Public License
  * along with Osmose.  If not, see <http://www.gnu.org/licenses/>.
  *
- * File: SN76489.cpp
+ * Many thanks to Vedder Bruno, the original author of Osmose Emulator.
  *
- * Project: Osmose emulator.
- *
- * Description: This class will implements SN76489 functionnality.
- *
- * Author: Vedder Bruno
- * Date: 18/11/2004, 18h00
- *
- * URL: http://bcz.asterope.fr
  */
+
 #include "SN76489.h"
 #include "Bits.h"
-//#include <stdio.h>
 
 /* Values ripped from MEKA. They've been controlled against a real SMS.*/
 const u16 SN76489::volume_table[16] = {892*5, 892*5, 892*5, 760*5, 623*5, 497*5, 404*5, 323*5, 257*5, 198*5, 159*5, 123*5,  96*5,  75*5,  60*5, 0};
