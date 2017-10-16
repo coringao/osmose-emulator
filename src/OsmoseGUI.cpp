@@ -26,6 +26,7 @@
 #include <QWidget>
 #include "OsmoseGUI.h"
 #include <QIcon>
+#include <QMimeData>
 
 /**
  * Constructor.
