@@ -1,8 +1,8 @@
-/*****************************************************************************
+/*
  * Copyright holder 2001-2011 Vedder Bruno.
- * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
- *	
- * This file is part of Osmose, a Sega Master System/Game Gear software 
+ * Work continued by 2016-2017 Carlos Donizete Froes [a.k.a coringao]
+ *
+ * This file is part of Osmose, a Sega Master System/Game Gear software
  * emulator.
  *
  * Osmose is free software: you can redistribute it and/or modify
@@ -18,18 +18,10 @@
  * You should have received a copy of the GNU General Public License
  * along with Osmose.  If not, see <http://www.gnu.org/licenses/>.
  *
- * File: SN76489.h
+ * Many thanks to Vedder Bruno, the original author of Osmose Emulator.
  *
- * Project: Osmose emulator.
- *
- * Description: This class will define SN76489 interface.
- *
- * Author: Vedder Bruno
- * Date: 18/11/2004, 18h00
- *
- * URL: http://bcz.asterope.fr
  */
- 
+
 #ifndef SN76489_H
 #define SN76489_H
 
