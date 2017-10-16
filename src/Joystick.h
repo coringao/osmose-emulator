@@ -1,6 +1,6 @@
 /*
  * Copyright holder 2001-2011 Vedder Bruno.
- * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
+ * Work continued by 2016-2017 Carlos Donizete Froes [a.k.a coringao]
  *	
  * This file is part of Osmose, a Sega Master System/Game Gear software 
  * emulator.
@@ -17,19 +17,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with Osmose.  If not, see <http://www.gnu.org/licenses/>.
- *	
  *
- * File : Joystick.h
- *
- * Description : This class inherits from Thread and read, every
- * polling period, the device file given to it's constructor. If events
- * are detected, the listener joystickChanged method will be called.
- * Note that several events will generate several call to joystick 
- * changed. There's only one listener at a time.
- *
- * Author : B.Vedder
- *
- * Date : Wed Dec 29 08:36:46 2010
+ * Many thanks to Vedder Bruno, the original author of Osmose Emulator.
  *
  */
 
