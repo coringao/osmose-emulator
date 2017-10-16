@@ -24,6 +24,7 @@
 
 #include "QGLImage.h"
 #include <iostream>
+#include <GL/gl.h>
 
 #define GL_UNSIGNED_INT_8_8_8_8_REV	0x8367
 #define GL_QUADS	0x0007

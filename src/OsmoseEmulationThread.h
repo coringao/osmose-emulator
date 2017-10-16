@@ -26,7 +26,7 @@
 #define OSMOSE_EMULATION_THREAD_H
 
 #include <pthread.h>
-#include <qt5/QtCore/Qt>
+#include <Qt>
 #include "EmulationThread.h"
 #include "Z80.h"
 #include "OsmoseCore.h"

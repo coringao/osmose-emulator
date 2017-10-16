@@ -22,7 +22,7 @@
  *
  */
 
-#include <qt5/QtWidgets/QApplication>
+#include <QApplication>
 #include <QTextStream>
 #include "OsmoseGUI.h"
 

@@ -25,7 +25,7 @@
 #ifndef QGLIMAGE_H
 #define QGLIMAGE_H
 
-#include <qt5/QtOpenGL/QtOpenGL>
+#include <QtOpenGL>
 #include <QGLWidget>
 #include <QMutex>
 #include <QMutexLocker>

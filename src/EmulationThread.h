@@ -27,7 +27,7 @@
 
 #include <iostream>
 #include <sys/time.h>
-#include <qt5/QtCore/QThread>
+#include <QThread>
 #include <QReadWriteLock>
 #include "QGLImage.h"
 #include "OsmoseConfigurationFile.h"

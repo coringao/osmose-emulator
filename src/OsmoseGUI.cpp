@@ -22,7 +22,7 @@
  *
  */
 
-#include <qt5/QtCore/QCoreApplication>
+#include <QCoreApplication>
 #include <QWidget>
 #include "OsmoseGUI.h"
 #include <QIcon>

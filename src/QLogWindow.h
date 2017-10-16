@@ -26,7 +26,7 @@
 #define QLOGWINDOW_H
 
 #include <iostream>
-#include <qt5/QtCore/QTime>
+#include <QTime>
 #include "ui_LogWindow.h"
 
 using namespace std;

@@ -25,7 +25,7 @@
 #ifndef QOSMOSECONFIGURATION_H
 #define QOSMOSECONFIGURATION_H
 
-#include <qt5/QtGui/QKeyEvent>
+#include <QKeyEvent>
 #include <QFileDialog>
 #include <QMessageBox>
 #include "ui_Configuration.h"
