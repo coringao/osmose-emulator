@@ -1,6 +1,6 @@
-/**
+/*
  * Copyright holder 2001-2011 Vedder Bruno.
- * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
+ * Work continued by 2016-2017 Carlos Donizete Froes [a.k.a coringao]
  *
  * This file is part of Osmose, a Sega Master System/Game Gear software
  * emulator.
@@ -18,13 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Osmose.  If not, see <http://www.gnu.org/licenses/>.
  *
- * File : SoundThread.cpp
- *
- * Description :
- *
- * Author : B.Vedder
- *
- * Date : Wed Dec 15 07:43:05 2010
+ * Many thanks to Vedder Bruno, the original author of Osmose Emulator.
  *
  */
 
@@ -39,7 +33,7 @@ SoundThread::SoundThread(const char *devName, FIFOSoundBuffer *sb)
 	strncpy(deviceName, devName, DEVICE_NAME_LENGTH);
 	initAlsa();
 	state = Paused;
-	mutex = PTHREAD_MUTEX_INITIALIZER;
+	static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 	sndFIFO = sb;
 }
 
