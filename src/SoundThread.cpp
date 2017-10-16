@@ -33,7 +33,7 @@ SoundThread::SoundThread(const char *devName, FIFOSoundBuffer *sb)
 	strncpy(deviceName, devName, DEVICE_NAME_LENGTH);
 	initAlsa();
 	state = Paused;
-	static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+	mutex = PTHREAD_MUTEX_INITIALIZER;
 	sndFIFO = sb;
 }
 
