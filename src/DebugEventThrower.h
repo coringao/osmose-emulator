@@ -1,6 +1,6 @@
-/*****************************************************************************
+/*
  * Copyright holder 2001-2011 Vedder Bruno.
- * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
+ * Work continued by 2016-2017 Carlos Donizete Froes [a.k.a coringao]
  *	
  * This file is part of Osmose, a Sega Master System/Game Gear software 
  * emulator.
@@ -18,20 +18,10 @@
  * You should have received a copy of the GNU General Public License
  * along with Osmose.  If not, see <http://www.gnu.org/licenses/>.
  *
- * File: DebugEventThrower.h
+ * Many thanks to Vedder Bruno, the original author of Osmose Emulator.
  *
- * Project: Osmose emulator.
- *
- * Description: This interface declares behaviour for a thrower of debug events.
- * It's done to help debugging SMS/GG hardware and Osmose code.
- *
- * Author: Vedder Bruno
- *
- * Date: 16.11.2006 10:42:28
- *
- * URL: http://bcz.asterope.fr/
  */
- 
+
 #ifndef DEBUG_EVENT_THROWER_H
 #define DEBUG_EVENT_THROWER_H
 

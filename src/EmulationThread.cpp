@@ -1,6 +1,6 @@
 /*
  * Copyright holder 2001-2011 Vedder Bruno.
- * Contributor 2016 Carlos Donizete Froes [a.k.a coringao]
+ * Work continued by 2016-2017 Carlos Donizete Froes [a.k.a coringao]
  *	
  * This file is part of Osmose, a Sega Master System/Game Gear software 
  * emulator.
@@ -17,24 +17,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with Osmose.  If not, see <http://www.gnu.org/licenses/>.
- *	
  *
- * File : EmulationThread.cpp
- *
- * Description : This class provide basic EmulationThread feature. It can start
- * pause, resume the rendering code that is provided in emulateOneFrame() pure
- * virtual method. The setRefreshingPeriod() set the number of frame per second
- * that is wanted. emulatOneframe() is called accordingly. The setResolution()
- * method emits a newResolution() signal to the QGLimage object to inform it 
- * of a resolution change (e.g. emulated video mode switch). The texture buffer
- * videoBuffer is allocated accordingly.
- * This class MUST be inherited, and the derived class MUST provide the 
- * emulateOneFrame() function, which perform emulation task and fill the video
- * buffer.
- *
- * Author : B.Vedder
- *
- * Date : Fri May 21 14:05:52 2010
+ * Many thanks to Vedder Bruno, the original author of Osmose Emulator.
  *
  */
 
@@ -50,7 +34,7 @@ EmulationThread::EmulationThread(QGLImage *qglimage) : screen(qglimage)
 	QObject::connect(this, SIGNAL(newResolution(int, int)), qglimage, SLOT(resolutionChanged(int, int)));
 	setResolution(qglimage->getTextureWidth(), qglimage->getTextureHeight());
 	emulationState = EMULATION_STOPPED;
-	
+
 	// Set default refresh slow arbitrary frequency.
 	setRefreshFrequency(1.0f);
 	done = false;
@@ -66,7 +50,7 @@ EmulationThread::~EmulationThread()
 
 /**
  * This method overrides QThread run(). It's the thread main method.
- * 
+ *
  * Return : None.
  */
 void EmulationThread::run()
