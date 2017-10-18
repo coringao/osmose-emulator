@@ -36,7 +36,7 @@ class FIFOSoundBuffer
         /* Destructor. */
         ~FIFOSoundBuffer()
         {
-            delete data_;
+            delete[] data_ ;
         }
 
         /* Write a value if buffer is not full. */

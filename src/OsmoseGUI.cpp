@@ -306,8 +306,8 @@ OsmoseGUI::OsmoseGUI(QWidget * parent, Qt::WindowFlags flags) : QMainWindow(pare
 	mb->addMenu(menu);
 
 	// ABOUT Menu
-	menu = new QMenu("About", this);
-	action = new QAction("&About the emulator", this);
+	menu = new QMenu("&About", this);
+	action = new QAction("&About emulator", this);
 	action->setShortcut(tr("F1"));
 	connect(action, &QAction::triggered, this, &OsmoseGUI::aboutDialog);
 	menu->addAction(action);
@@ -951,7 +951,7 @@ void OsmoseGUI::aboutDialog()
 	    \n<center><i>Sega Master System and Game Gear console emulator</i></center><br> \
 	    Many thanks to <b>Vedder Bruno</b> [2001-2011]\
 	    the original author of Osmose Emulator.<br>  \
-	    Work continued by <b>Carlos Donizete Froes</b> [2016-2017] \
+	    Work continued by <b>Carlos Donizete</b> [2016-2017]. \
 	    <br><br> \
 	    This program comes with absolutely no warranty and can be redistributed and/or \
 	    modified under the terms of the \
