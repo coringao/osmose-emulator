@@ -306,7 +306,7 @@ OsmoseGUI::OsmoseGUI(QWidget * parent, Qt::WindowFlags flags) : QMainWindow(pare
 	mb->addMenu(menu);
 
 	// ABOUT Menu
-	menu = new QMenu("&About", this);
+	menu = new QMenu("About", this);
 	action = new QAction("&About emulator", this);
 	action->setShortcut(tr("F1"));
 	connect(action, &QAction::triggered, this, &OsmoseGUI::aboutDialog);
@@ -485,7 +485,7 @@ void OsmoseGUI::loadTheROM(QString filename)
 		bool killed = emuThread->wait(1000); // Wait for thread end for 1 second.
 		if (!killed)
 		{
-			string msg = "Warning : could not kill emulation thread !";
+			string msg = "Warning: could not kill emulation thread !";
 			QLogWindow::getInstance()->appendLog(msg);
 		}
 		delete emuThread;
