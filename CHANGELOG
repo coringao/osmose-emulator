@@ -1,3 +1,7 @@
+version: 1.2
+  * Fixed bug in audio alsa
+  * Fixed installation on architectures 'arm'
+
 version: 1.1
   * Changed own icon in the main window
   * Changed image format: xpm to png
