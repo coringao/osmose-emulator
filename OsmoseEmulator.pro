@@ -5,8 +5,8 @@ TEMPLATE = app
 DEPENDPATH += src
 INCLUDEPATH += src
 
-LIBS += -lz -lasound
-FLAGS = -Wall -Wextra -Wno-unused -Wcast-qual
+LIBS += -lz -lasound -lGL -lGLU -lglut
+FLAGS += -Wall -Wextra -Wno-unused -Wcast-qual
 QMAKE_CXXFLAGS += -std=gnu++11 $$FLAGS
 QMAKE_CFLAGS += -Wmissing-prototypes -Wshadow $$FLAGS
 
