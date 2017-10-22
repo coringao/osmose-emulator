@@ -28,5 +28,5 @@
 // These four definitions should be coherent!
 #define __OSMOSE_VERSION__ "Osmose Emulator"
 #define MAJOR  1
-#define MIDDLE 1
+#define MIDDLE 2
 #endif

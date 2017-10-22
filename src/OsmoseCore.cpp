@@ -22,8 +22,8 @@
  *
  */
 
+#include <alsa/asoundlib.h>
 #include "OsmoseCore.h"
-
 
 SN76489           *p;
 
@@ -38,7 +38,7 @@ OsmoseCore::OsmoseCore(const char *rom_f,  unsigned int *output, OsmoseConfigura
 	osmose_core_mutex = ocm;
 	configuration = conf;
 	buffer = output;
-    nmi		   = false;
+    nmi	= false;
     sound_shot_toggle = false;
     snd_started = false;
     screenshotNbr  = 0;
@@ -103,7 +103,7 @@ OsmoseCore::OsmoseCore(const char *rom_f,  unsigned int *output, OsmoseConfigura
 		try
 		{
 			sndThread = new SoundThread("plughw:0,0", p->getFIFOSoundBuffer());
-			sndThread->start(); 	// Start thread, not playing !		
+			sndThread->start(); 	// Start thread, not playing !
 			string msg = "Creating SoundThread";
 			QLogWindow::getInstance()->appendLog(msg);
 		}
@@ -129,7 +129,7 @@ OsmoseCore::~OsmoseCore()
 	delete mem;
 	delete env;
 	delete iom;
-	delete cpu;	
+	delete cpu;
 }
 
 /*--------------------------------------------------------------------*/
