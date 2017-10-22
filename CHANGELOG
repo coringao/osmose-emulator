@@ -5,7 +5,7 @@ version: 1.1
   * Fixed spelling in some files
   * Copied the files from the directory (cpu) to the directory (src)
   * Updated file: OsmoseEmulator.pro
-  * Some audio/video bug fixes
+  * Some bug fixes
   * Fixed build for armel/armhf architectures
   * Added libraries required for armel/armhf architectures
 
