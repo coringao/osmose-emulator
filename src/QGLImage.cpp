@@ -22,9 +22,14 @@
  *
  */
 
+#define GL_GLEXT_LEGACY
+#define GLX_GLXEXT_LEGACY
+
 #include "QGLImage.h"
 #include <iostream>
 #include <GL/gl.h>
+#include <GL/glu.h>
+#include <GL/glut.h>
 
 #define GL_UNSIGNED_INT_8_8_8_8_REV	0x8367
 #define GL_QUADS	0x0007
@@ -93,9 +98,8 @@ void QGLImage::resizeGL(int width, int height)
  */
 void QGLImage::paintGL()
 {
-	QMutexLocker locker(& textureBufferMutex);
-	
-	setupViewport(viewPortWidth, viewPortHeight);
+    QMutexLocker locker(& textureBufferMutex);
+    setupViewport(viewPortWidth, viewPortHeight);
     glLoadIdentity();
     glBindTexture(GL_TEXTURE_2D, textureName[0]);
 
@@ -124,7 +128,7 @@ void QGLImage::paintGL()
  */
 void QGLImage::initializeGL()
 {
-	glClearColor(0.0, 0.0, 0.0, 0.0);
+    glClearColor(0.0, 0.0, 0.0, 0.0);
     glEnable(GL_TEXTURE_2D);
     
     /* Delete previous texture if any. OGL ignores free on non alloc. textures */
@@ -133,17 +137,17 @@ void QGLImage::initializeGL()
     glBindTexture(GL_TEXTURE_2D, textureName[0]);
     if (bilinearFiltering == true)
     {
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	}
-	else
-	{
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     }
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);            
-}
+	else
+    {
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    }
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);            
+    }
 
 
 /**
@@ -165,7 +169,8 @@ void QGLImage::setupViewport(int width, int height)
 	glLoadIdentity();
 	glOrtho(0.0f,width,height,0.0f,-1.0f,1.0f);				
 	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();	
+	glLoadIdentity();
+	glEnd();
 }
 
 
