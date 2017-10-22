@@ -25,7 +25,7 @@ GUI lib powerful enough to refresh display at 60hz.
 	- GUI development using QT5.
 	- Rendering/Key mapping adapted to QTOpenGL.
 	- Configuration system rewritten.
-	- Functional in i386, amd64 and arm architectures
+	- Functional in i386, amd64 and arm architectures.
 
 *Dependencies for Debian/Ubuntu/GNU/Linux:*
 ---------------------------------------
