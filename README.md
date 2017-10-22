@@ -1,3 +1,4 @@
+
            _______                  _______
           |       |.-----.--------.|       |.-----.-----.
           |   -   ||__ --|        ||   -   ||__ --|  -__|
@@ -28,7 +29,7 @@ GUI lib powerful enough to refresh display at 60hz.
 *Dependencies for Debian/Ubuntu/GNU/Linux:*
 ---------------------------------------
 
-    # apt install libasound2-dev libqt5opengl5-dev libgl1-mesa-dev mesa-common-dev qt5-qmake qt5-default qtbase5-dev qtchooser zlib1g-dev
+    # apt install freeglut3-dev libasound2-dev libqt5opengl5-dev libgl1-mesa-dev mesa-common-dev qt5-qmake qt5-default qtbase5-dev qtchooser zlib1g-dev
 
 *Compilation:*
 --------------
