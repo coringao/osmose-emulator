@@ -73,7 +73,7 @@ codemaster mapper, which work  but does not have proper video mode emulated.
 Need more information or contact with authors:
 
 - © 2001-2011 Copyright holder Bruno Vedder
-- © 2016-2017 Work continued by Carlos Donizete Froes [a.k.a coringao]
+- © 2016-2018 Work continued by Carlos Donizete Froes [a.k.a coringao]
 
 * This file was officially downloaded from : http://bcz.asterope.fr
-* Continuation of the project from: https://github.com/coringao/osmose-emulator
+* Continuation of the project from: https://gitlab.com/coringao/osmose-emulator
