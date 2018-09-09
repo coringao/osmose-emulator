@@ -1,6 +1,6 @@
 /*
  * Copyright holder 2001-2011 Vedder Bruno.
- * Work continued by 2016-2017 Carlos Donizete Froes [a.k.a coringao]
+ * Work continued by 2016-2018 Carlos Donizete Froes [a.k.a coringao]
  *
  * This file is part of Osmose, a Sega Master System/Game Gear software
  * emulator.
@@ -23,6 +23,8 @@
  */
 
 #include "SoundThread.h"
+#include <string.h>
+#pragma GCC diagnostic ignored "-Wstringop-truncation"
 
 /**
  * Constructor.
