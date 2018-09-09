@@ -1,6 +1,6 @@
 /*
  * Copyright holder 2001-2011 Vedder Bruno.
- * Work continued by 2016-2017 Carlos Donizete Froes [a.k.a coringao]
+ * Work continued by 2016-2018 Carlos Donizete Froes [a.k.a coringao]
  *
  * This file is part of Osmose, a Sega Master System/Game Gear software
  * emulator.
@@ -947,11 +947,11 @@ void OsmoseGUI::aboutDialog()
 {
 	    QMessageBox::about(this,tr("About"), \
 	    tr("<center><b>OSMOSE EMULATOR</b></center> \
-	    \n<center><b>Version: 1.2</b></center> \
+	    \n<center><b>Version: 1.3</b></center> \
 	    \n<center><i>Sega Master System and Game Gear console emulator</i></center><br> \
 	    Many thanks to <b>Vedder Bruno</b> [2001-2011]\
 	    the original author of Osmose Emulator.<br>  \
-	    Work continued by <b>Carlos Donizete</b> [2016-2017]. \
+	    Work continued by <b>Carlos Donizete</b> [2016-2018]. \
 	    <br><br> \
 	    This program comes with absolutely no warranty and can be redistributed and/or \
 	    modified under the terms of the \
