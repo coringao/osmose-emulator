@@ -1,3 +1,20 @@
+###############################################################################
+#  
+# * This file is part of Osmose, a Sega Master System/Game Gear software
+# * emulator.
+# *
+# * Many thanks to Vedder Bruno, the original author of Osmose Emulator.
+# *
+# * Copyright holder 2001-2011 Vedder Bruno.
+# * Work continued by 2016-2018 Carlos Donizete Froes [a.k.a coringao]
+# *
+# * Osmose Emulator is free software: you can redistribute it and/or modify it
+# * under the terms of the GNU General Public License as published by the
+# * Free Software Foundation, either version 3 of the License,
+# * or any later version.
+#
+###############################################################################
+
 QT += core gui opengl widgets
 TARGET = osmose-emulator
 TEMPLATE = app
