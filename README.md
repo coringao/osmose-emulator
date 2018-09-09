@@ -68,12 +68,16 @@ codemaster mapper, which work  but does not have proper video mode emulated.
     
 **Due to the huge number of game gear/master system (around 1300) roms, games have not been deeply tested.**
 
------
-
-Need more information or contact with authors:
-
-- © 2001-2011 Copyright holder Bruno Vedder
-- © 2016-2018 Work continued by Carlos Donizete Froes [a.k.a coringao]
-
 * This file was officially downloaded from : http://bcz.asterope.fr
 * Continuation of the project from: https://gitlab.com/coringao/osmose-emulator
+
+**License**
+-----------
+
+> **Osmose Emulator** is free software: you can redistribute it and/or modify
+> it under the terms of the GNU General Public License as published by
+> the Free Software Foundation, either version 3 of the License, or
+> any later version.
+
+- Copyright (c) 2001-2011 Copyright holder **Bruno Vedder**
+- Copyright (c) 2016-2018 Work continued by **Carlos Donizete Froes [a.k.a coringao]**
