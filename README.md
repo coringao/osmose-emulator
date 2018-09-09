@@ -17,7 +17,8 @@ In brief it's an Sega Master System/Game Gear emulator encapsulated into C++ cla
 Many thanks to Vedder Bruno, the original author of Osmose Emulator.
 
 *What's new:*
------------
+-------------
+
 Osmose Emulator owns a clean graphical user interface based on QT version 5.x,
 GUI lib powerful enough to refresh display at 60hz.
 
@@ -28,12 +29,13 @@ GUI lib powerful enough to refresh display at 60hz.
 	- Functional in i386, amd64 and arm architectures.
 
 *Dependencies for Debian/Ubuntu/GNU/Linux:*
----------------------------------------
+-------------------------------------------
 
     # apt install freeglut3-dev libasound2-dev libqt5opengl5-dev libgl1-mesa-dev mesa-common-dev qt5-qmake qt5-default qtbase5-dev qtchooser zlib1g-dev
 
 *Compilation:*
 --------------
+
 To build osmose emulator, do from the source directory.
 
 *Starting compilation:*
@@ -46,6 +48,7 @@ To build osmose emulator, do from the source directory.
 
 *Features:*
 -----------
+
 - SMS: Good compatibility. At this stage, the emulator can run **96%** of
 commercial games and public demos, except games that relies on
 codemaster mapper, which work  but does not have proper video mode emulated.
