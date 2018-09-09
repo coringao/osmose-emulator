@@ -1,6 +1,6 @@
 /*
  * Copyright holder 2001-2011 Vedder Bruno.
- * Work continued by 2016-2017 Carlos Donizete Froes [a.k.a coringao]
+ * Work continued by 2016-2018 Carlos Donizete Froes [a.k.a coringao]
  *
  * This file is part of Osmose, a Sega Master System/Game Gear software
  * emulator.
@@ -28,5 +28,5 @@
 // These four definitions should be coherent!
 #define __OSMOSE_VERSION__ "Osmose Emulator"
 #define MAJOR  1
-#define MIDDLE 2
+#define MIDDLE 3
 #endif
