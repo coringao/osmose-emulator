@@ -7,7 +7,7 @@ INCLUDEPATH += src
 
 LIBS += -lz -lasound -lGL -lGLU -lglut
 FLAGS += -Wall -Wextra -Wno-unused -Wcast-qual
-QMAKE_CXXFLAGS += -std=gnu++11 $$FLAGS
+QMAKE_CXXFLAGS += -std=gnu++17 $$FLAGS
 QMAKE_CFLAGS += -Wmissing-prototypes -Wshadow $$FLAGS
 
 # Output directory
