@@ -31,7 +31,7 @@
 SoundThread::SoundThread(const char *devName, FIFOSoundBuffer *sb)
 {
 	/* Make a deep copy of the device name */
-	strncpy(deviceName, devName, DEVICE_NAME_LENGTH);
+	memcpy(deviceName, devName, DEVICE_NAME_LENGTH);
 	initAlsa();
 	state = Paused;
 	mutex = PTHREAD_MUTEX_INITIALIZER;

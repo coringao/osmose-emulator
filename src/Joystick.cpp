@@ -49,7 +49,7 @@ Joystick::Joystick(const char *dev_name, JoystickListener *lstnr)
     }
 
     // Device successfully opened. Keep track of device name.
-    ::strncpy(deviceName, dev_name, MAX_DEVNAME_LEN);
+    ::memcpy(deviceName, dev_name, MAX_DEVNAME_LEN);
 
     // Now get Joystick ID.
     if (::ioctl(joystickFD, JSIOCGNAME(MAX_JOYID_LEN), joystickID) < 0)
