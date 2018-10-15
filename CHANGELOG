@@ -1,8 +1,9 @@
 version: 1.3
-  * Fixed build failure with GCC 8
+  * Replaced 'strncpy' with 'memcpy' to suppress the warning
   * Updated files version and year
   * Changed alsa device to "plughw"
-  * Added game manpage
+  * Added to manpage in src directory
+  * Changed the build flag to version 'gnu++17'
 
 version: 1.2
   * Fixed bug in audio alsa
