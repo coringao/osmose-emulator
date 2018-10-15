@@ -24,7 +24,6 @@
 
 #include "SoundThread.h"
 #include <string.h>
-#pragma GCC diagnostic ignored "-Wstringop-truncation"
 
 /**
  * Constructor.

@@ -27,7 +27,6 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <string.h>
-#pragma GCC diagnostic ignored "-Wstringop-truncation"
 
 /**
  * Constructor. Throw an exception in case of failure.
