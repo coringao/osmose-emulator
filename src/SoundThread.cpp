@@ -22,6 +22,10 @@
  *
  */
 
+// Interleaved mode is not supported by some cards. However, since Osmose
+// is only using 1 single chanel (MONO), this feature can be disabled.
+// Contributed by: Kevin Joly (Kev-J)
+
 #include "SoundThread.h"
 #include <string.h>
 
@@ -142,11 +146,12 @@ int SoundThread::playback_callback (snd_pcm_sframes_t nframes)
 	int err;
 
 	//printf ("playback callback called with %d frames\n", (int)nframes);
-	void *channelsbuffer[1];
-	channelsbuffer[0] = &samplebuffer;
+	//void *channelsbuffer[1];
+	//channelsbuffer[0] = &samplebuffer;
 	sndFIFO->read(samplebuffer, nframes);
 
-	if ((err = snd_pcm_writen(playback_handle, (void **)channelsbuffer, nframes)) < 0)
+	//if ((err = snd_pcm_writen(playback_handle, (void **)channelsbuffer, nframes)) < 0)
+	if ((err = snd_pcm_writei(playback_handle, samplebuffer, nframes)) < 0)
 	{
 		fprintf (stderr, "write failed (%s)\n", snd_strerror (err));
 	}
@@ -221,13 +226,12 @@ void SoundThread::initAlsa()
 		throw oss.str();
 	}
 
-
 	/* Set Sample are NON Interleaved (mono !) */
-	if ((err = snd_pcm_hw_params_set_access (playback_handle, hw_params, SND_PCM_ACCESS_RW_NONINTERLEAVED)) < 0)
-	{
-		oss << "cannot set access type : " << snd_strerror (err) << endl;
-		throw oss.str();
-	}
+	//if ((err = snd_pcm_hw_params_set_access (playback_handle, hw_params, SND_PCM_ACCESS_RW_NONINTERLEAVED)) < 0)
+	//{
+	//	oss << "cannot set access type : " << snd_strerror (err) << endl;
+	//	throw oss.str();
+	//}
 
 	/* Set Sample format: Signed 16bit little endian. */
 	if ((err = snd_pcm_hw_params_set_format (playback_handle, hw_params, SND_PCM_FORMAT_S16_LE)) < 0)
