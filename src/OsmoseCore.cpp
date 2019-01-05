@@ -102,7 +102,9 @@ OsmoseCore::OsmoseCore(const char *rom_f,  unsigned int *output, OsmoseConfigura
     {
 		try
 		{
-			sndThread = new SoundThread("plughw", p->getFIFOSoundBuffer());
+		        // The plugdev device is obsolete. Replacing it by "default" made it working with pulseaudio.
+		        // Contributed by: Kevin Joly (Kev-J)
+			sndThread = new SoundThread("default", p->getFIFOSoundBuffer());
 			sndThread->start(); 	// Start thread, not playing !
 			string msg = "Creating SoundThread";
 			QLogWindow::getInstance()->appendLog(msg);
