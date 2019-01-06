@@ -1,3 +1,8 @@
+version: 1.4
+  * Set default sound device (Thanks to Kev-J)
+  * Change sound buffer writing method (Thanks to Kev-J)
+  * Qt Wayland widgets alternative in gnome-shell
+
 version: 1.3
   * Replaced 'strncpy' with 'memcpy' to suppress the warning
   * Updated files version and year
