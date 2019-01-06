@@ -947,7 +947,7 @@ void OsmoseGUI::aboutDialog()
 {
 	    QMessageBox::about(this,tr("About"), \
 	    tr("<center><b>OSMOSE EMULATOR</b></center> \
-	    \n<center><b>Version: 1.3</b></center> \
+	    \n<center><b>Version: 1.4</b></center> \
 	    \n<center><i>Sega Master System and Game Gear console emulator</i></center><br> \
 	    Many thanks to <b>Vedder Bruno</b> [2001-2011]\
 	    the original author of Osmose Emulator.<br>  \
